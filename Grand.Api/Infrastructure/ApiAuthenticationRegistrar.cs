@@ -52,14 +52,14 @@ namespace Grand.Api.Infrastructure
                             {
                                 var jwtAuthentication = context.HttpContext.RequestServices.GetRequiredService<IJwtBearerAuthenticationService>();
                                 if (!await jwtAuthentication.Valid(context))
-                                    throw new Exception(await jwtAuthentication.ErrorMessage());
+                                    throw new ArgumentNullException(await jwtAuthentication.ErrorMessage());
                             }
                             else
-                                throw new Exception("API is disable");
+                                throw new ArgumentNullException("API is disable");
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception(ex.Message);
+                            throw new ArgumentNullException(ex.Message);
                         }
                     },
                 };
