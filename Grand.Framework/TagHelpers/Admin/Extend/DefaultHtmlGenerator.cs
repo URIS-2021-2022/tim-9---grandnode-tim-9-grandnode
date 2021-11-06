@@ -1280,7 +1280,6 @@ namespace Grand.Framework.TagHelpers.Admin
 
                     break;
 
-                case InputType.Text:
                 default:
                     var attributeValue = (string)GetModelStateValue(viewContext, fullName, typeof(string));
                     if (attributeValue == null)
