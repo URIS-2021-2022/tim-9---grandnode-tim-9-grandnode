@@ -140,7 +140,7 @@ namespace Grand.Web.Features.Handlers.Catalog
                 PriceMin = minPriceConverted,
                 PriceMax = maxPriceConverted,
                 FilteredSpecs = alreadyFilteredSpecOptionIds,
-                OrderBy = (ProductSortingEnum)request.Command.OrderBy,
+                OrderBy = (ProductSorting)request.Command.OrderBy,
                 PageIndex = request.Command.PageNumber - 1,
                 PageSize = request.Command.PageSize
             }));

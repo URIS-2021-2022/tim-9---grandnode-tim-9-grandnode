@@ -132,7 +132,13 @@
         /// <summary>
         /// Key pattern to clear cache
         /// </summary>
-        public static string URLRECORD_PATTERN_KEY = "Grand.urlrecord.";
+        private static string URLRECORD_PATTERN_KEY = "Grand.urlrecord.";
+
+        public static string UrlRecord_Pattern_Key
+        {
+            get { return URLRECORD_PATTERN_KEY; }
+            set { URLRECORD_PATTERN_KEY = value;}
+        }
 
         #endregion
 
