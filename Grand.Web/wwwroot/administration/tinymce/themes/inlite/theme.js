@@ -6628,7 +6628,7 @@ var inlite = (function () {
     return str.indexOf(substr) !== -1;
   };
 
-  var normalVersionRegex = /.*?version\/\ ?([0-9]+)\.([0-9]+).*/;
+  var normalVersionRegex = /.*?version\/\ ?(\d+)\.(\d+).*/;
   var checkContains = function (target) {
     return function (uastring) {
       return contains$1(uastring, target);
