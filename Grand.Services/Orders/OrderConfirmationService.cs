@@ -342,7 +342,8 @@ namespace Grand.Services.Orders
             else
             {
                 //payment is not required
-                processPaymentResult = new ProcessPaymentResult();
+                if (processPaymentResult == null)
+                    processPaymentResult = new ProcessPaymentResult();
                 processPaymentResult.NewPaymentStatus = PaymentStatus.Paid;
             }
 
