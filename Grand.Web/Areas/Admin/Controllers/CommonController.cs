@@ -574,7 +574,7 @@ namespace Grand.Web.Areas.Admin.Controllers
                 var operation = new EvalOperation(_mongoDBContext.Database().DatabaseNamespace, bscript, null);
                 var writeBinding = new WritableServerBinding(_mongoDBContext.Database().Client.Cluster, NoCoreSession.NewHandle());
                 var result = operation.Execute(writeBinding, CancellationToken.None);
-                var xx = result["_ns"];
+                
                 return Json(new { Result = true, Message = result.ToString() });
             }
             catch (Exception ex)
