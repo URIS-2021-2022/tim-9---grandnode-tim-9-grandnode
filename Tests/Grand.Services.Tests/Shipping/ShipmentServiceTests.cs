@@ -112,12 +112,12 @@ namespace Grand.Services.Shipping.Tests
         //}
 
         //TO DO
-        [TestMethod()]
-        public async Task Can_load_active_shippingRateComputationMethods()
-        {
-            var srcm = await _shippingService.LoadActiveShippingRateComputationMethods();
-            Assert.IsNotNull(srcm);
-            Assert.IsTrue(srcm.Count > 0);
-        }
+        //[TestMethod()]
+        //public async Task Can_load_active_shippingRateComputationMethods()
+        //{
+         //   var srcm = await _shippingService.LoadActiveShippingRateComputationMethods();
+         //   Assert.IsNotNull(srcm);
+          //  Assert.IsTrue(srcm.Count > 0);
+        //}
     }
 }
