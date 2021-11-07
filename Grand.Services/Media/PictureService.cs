@@ -304,12 +304,28 @@ namespace Grand.Services.Media
             }
             if (targetSize == 0)
             {
-                return !string.IsNullOrEmpty(storeLocation)
-                        ? storeLocation
-                        : string.IsNullOrEmpty(_mediaSettings.StoreLocation) ?
-                        _storeContext.CurrentStore.SslEnabled ? _storeContext.CurrentStore.SecureUrl : _storeContext.CurrentStore.Url :
-                        _mediaSettings.StoreLocation
-                        + "content/images/" + defaultImageFileName;
+                if (!string.IsNullOrEmpty(storeLocation))
+                {
+                    return storeLocation + "content/images/" + defaultImageFileName;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(_mediaSettings.StoreLocation))
+                    {
+                        if (_storeContext.CurrentStore.SslEnabled)
+                        {
+                           return  _storeContext.CurrentStore.SecureUrl + "content/images/" + defaultImageFileName;
+                        }
+                        else
+                        {
+                            return _storeContext.CurrentStore.Url + "content/images/" + defaultImageFileName;
+                        }
+                    }
+                    else
+                    {
+                        return _mediaSettings.StoreLocation + "content/images/" + defaultImageFileName;
+                    }
+                }
             }
             else
             {

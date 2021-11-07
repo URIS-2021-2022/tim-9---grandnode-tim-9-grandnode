@@ -2196,7 +2196,7 @@ pagination .pagination a:not([href]) {
         align-items: center;
     }
 
-list settings .list__item,
+.list .list__item,
 .listClear {
     display: -ms-flexbox;
     display: flex;
@@ -4062,10 +4062,10 @@ valid mgs .input-validation-error {
         height: 40px;
         display: block;
         position: relative;
+        margin: auto;
         margin-top: auto;
         margin-bottom: auto;
         margin-right: auto !important;
-        margin: auto;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;

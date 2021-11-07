@@ -91,8 +91,8 @@ namespace Grand.Services.Shipping.Tests
 
             _shoppingCartSettings = new ShoppingCartSettings();
         }
-
-        //TO DO
+        
+          //TO DO
         //[TestMethod()]
         //public void Can_load_shippingRateComputationMethods()
         //{
