@@ -5,7 +5,7 @@ namespace Grand.Framework.Components
     [BaseViewComponent(AdminAccess = true)]
     public abstract class BaseAdminViewComponent : ViewComponent
     {
-        public BaseAdminViewComponent()
+        protected BaseAdminViewComponent()
         {
 
         }
