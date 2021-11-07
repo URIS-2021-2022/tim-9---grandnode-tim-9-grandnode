@@ -727,7 +727,7 @@ namespace Grand.Services.Discounts
                 throw new ArgumentNullException("discount");
 
             //calculate discount amount
-            decimal result = decimal.Zero;
+            decimal result;
             if (!discount.CalculateByPlugin)
             {
                 if (discount.UsePercentage)
