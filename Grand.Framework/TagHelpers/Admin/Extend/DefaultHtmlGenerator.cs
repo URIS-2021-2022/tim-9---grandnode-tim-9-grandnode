@@ -1247,6 +1247,8 @@ namespace Grand.Framework.TagHelpers.Admin
                         usedModelState = true;
                     }
 
+                    continue;
+
                 case InputType.Radio:
                     if (!usedModelState)
                     {
