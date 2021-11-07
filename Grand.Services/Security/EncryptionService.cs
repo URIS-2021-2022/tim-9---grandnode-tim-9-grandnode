@@ -74,6 +74,7 @@ namespace Grand.Services.Security
                 encryptionPrivateKey = _securitySettings.EncryptionKey;
 
             var AES = new AesCryptoServiceProvider();
+            AES.CreateEncryptor();
 
             AES.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
             AES.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
