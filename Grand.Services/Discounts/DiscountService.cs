@@ -397,7 +397,7 @@ namespace Grand.Services.Discounts
                     {
                         coupon.Used=true;
                     }
-                    if(!coupon.Qty > 0)
+                    if(coupon.Qty >= 0)
                     {
                         coupon.Used = false;
                     }
