@@ -142,7 +142,10 @@ namespace Grand.Services.Media
                 {
                     File.Delete(thumbFilePath);
                 }
-                catch { }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.Message);
+                }
             }
             return Task.CompletedTask;
         }
