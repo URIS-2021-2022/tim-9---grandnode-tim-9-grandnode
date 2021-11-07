@@ -59,15 +59,15 @@ namespace Grand.Framework.Mvc.Filters
             /// <summary>
             /// Called early in the filter pipeline to confirm request is authorized
             /// </summary>
-            /// <param name="context">Authorization filter context</param>
-            public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
+            /// <param name="filterContext">Authorization filter context</param>
+            public async Task OnAuthorizationAsync(AuthorizationFilterContext filterContext)
             {
                 //ignore filter (the action available even when navigation is not allowed)
-                if (context == null)
-                    throw new ArgumentNullException(nameof(context));
+                if (filterContext == null)
+                    throw new ArgumentNullException(nameof(filterContext));
 
                 //check whether this filter has been overridden for the Action
-                var actionFilter = context.ActionDescriptor.FilterDescriptors
+                var actionFilter = filterContext.ActionDescriptor.FilterDescriptors
                     .Where(f => f.Scope == FilterScope.Action)
                     .Select(f => f.Filter).OfType<CheckAccessPublicStoreAttribute>().FirstOrDefault();
 
@@ -86,11 +86,11 @@ namespace Grand.Framework.Mvc.Filters
 
                 if (_storeInformationSettings.StoreClosed)
                 {
-                    context.Result = new RedirectToRouteResult("StoreClosed", new RouteValueDictionary());                    
+                    filterContext.Result = new RedirectToRouteResult("StoreClosed", new RouteValueDictionary());                    
                 }
                 else
                     //customer hasn't access to a public store
-                    context.Result = new ChallengeResult();
+                    filterContext.Result = new ChallengeResult();
             }
 
             #endregion
