@@ -65,7 +65,7 @@ namespace Grand.Services.Orders
         /// <param name="endTimeUtc">End date</param>
         /// <returns>Result</returns>
         public virtual async Task<IList<OrderByCountryReportLine>> GetCountryReport(string storeId, OrderStatus? os,
-            PaymentStatus? ps, ShippingStatus? ss, DateTime? startTimeUtc, DateTime? endTimeUtc)
+            PaymentStatus? ps=null, ShippingStatus? ss, DateTime? startTimeUtc, DateTime? endTimeUtc)
         {
             int? orderStatusId = null;
             if (os.HasValue)
