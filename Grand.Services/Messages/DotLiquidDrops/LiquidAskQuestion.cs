@@ -7,7 +7,7 @@ namespace Grand.Services.Messages.DotLiquidDrops
     {
         private string message;
         private string email;
-        private string fullName;
+        private readonly string fullName;
         private string phone;
 
         public LiquidAskQuestion(string message, string email, string fullName, string phone)
