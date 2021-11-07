@@ -41,7 +41,7 @@ namespace Grand.Services.Catalog
         public virtual async Task UpdateCourseOnProduct(string productId, string courseId)
         {
             if (string.IsNullOrEmpty(productId))
-                throw new ArgumentNullException("product");
+                throw new ArgumentNullException(nameof(productId));
 
             var builder = Builders<Product>.Filter;
             var filter = builder.Eq(x => x.Id, productId);

@@ -56,7 +56,7 @@ namespace Grand.Services.Directory
                 //Console.WriteLine(omni.Location.Latitude); // 44.9733
                 //Console.WriteLine(omni.Location.Longitude); // -93.2323
             }
-            //catch (AddressNotFoundException exc)
+            
             catch (GeoIP2Exception)
             {
                 //address is not found
