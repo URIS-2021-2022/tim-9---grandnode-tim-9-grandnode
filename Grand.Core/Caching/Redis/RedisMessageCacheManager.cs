@@ -57,6 +57,7 @@ namespace Grand.Core.Caching.Redis
         /// <param name="publisher">publisher</param>
         public override Task Clear(bool publisher = true)
         {
+            
             base.Clear();
             if (publisher)
                 _messageBus.PublishAsync(new MessageEvent() { Key = "", MessageType = (int)MessageEventType.ClearCache });
