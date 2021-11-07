@@ -56,7 +56,6 @@ namespace Grand.Framework.Security.Authorization
                     context.Result = new JsonResult(new DataSourceResult { Errors = $"Access denied to the resource {context.HttpContext.Request.Path}" });
                 }
             }
-            return;
         }
     }
 }

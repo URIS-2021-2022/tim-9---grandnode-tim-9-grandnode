@@ -1247,7 +1247,7 @@ namespace Grand.Framework.TagHelpers.Admin
                         usedModelState = true;
                     }
 
-                    goto case InputType.Radio;
+                    break;
 
                 case InputType.Radio:
                     if (!usedModelState)
@@ -1280,7 +1280,6 @@ namespace Grand.Framework.TagHelpers.Admin
 
                     break;
 
-                case InputType.Text:
                 default:
                     var attributeValue = (string)GetModelStateValue(viewContext, fullName, typeof(string));
                     if (attributeValue == null)

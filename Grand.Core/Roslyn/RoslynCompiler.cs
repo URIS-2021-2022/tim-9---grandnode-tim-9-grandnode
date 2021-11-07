@@ -24,12 +24,14 @@ namespace Grand.Core.Roslyn
 
         #region Fields
 
-        private static DirectoryInfo _shadowCopyScriptPath;
+        
 
         #endregion
 
         public static void Initialize(ApplicationPartManager applicationPartManager, GrandConfig config)
         {
+            DirectoryInfo _shadowCopyScriptPath;
+
             if (applicationPartManager == null)
                 throw new ArgumentNullException("applicationPartManager");
 
