@@ -53,7 +53,7 @@ function displayPopupPrivacyPreference(html) {
     });
 }
 function displayPopupNewsletterCategory(html) {
-    new Vue({
+    var x = new Vue({
         el: '#ModalNewsletterCategory',
         data: {
             template: null,
@@ -91,7 +91,7 @@ function displayPopupNewsletterCategory(html) {
 
 function displayPopupAddToCart(html) {
     document.querySelector('.modal-place').innerHTML = html;
-        new Vue({
+      var x =  new Vue({
             el: '#ModalAddToCart',
             data: {
                 template: null,
@@ -132,7 +132,7 @@ function displayPopupAddToCart(html) {
 
 function displayPopupQuickView(html) {
     document.querySelector('.modal-place').innerHTML = html;
-    new Vue({
+    var x = new Vue({
         el: '#ModalQuickView',
         data: {
             template: null,
