@@ -9,8 +9,6 @@ namespace Grand.Core.ModelBinding
     {
         #region Fields
 
-        private string _resourceValue = string.Empty;
-
         #endregion
 
         #region Ctor
