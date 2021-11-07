@@ -193,7 +193,8 @@ namespace Grand.Framework.TagHelpers.Admin
 
             while (t != null)
             {
-                fi = t.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+                BindingFlags bindingAttr = BindingFlags.Instance | BindingFlags.NonPublic;
+                fi = t.GetField(fieldName, bindingAttr);
 
                 if (fi != null) break;
 
