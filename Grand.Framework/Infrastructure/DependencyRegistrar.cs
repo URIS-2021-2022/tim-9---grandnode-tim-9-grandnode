@@ -130,7 +130,7 @@ namespace Grand.Framework.Infrastructure
                      var isMatch = type.GetTypeInfo().IsGenericType && ((Type)criteria).IsAssignableFrom(type.GetGenericTypeDefinition());
                      return isMatch;
                  }, typeof(IValidatorConsumer<>));
-                types.Select(c => serviceCollection.AddScoped(c, consumer));
+                var res = types.Select(c => serviceCollection.AddScoped(c, consumer));
             }
         }
 

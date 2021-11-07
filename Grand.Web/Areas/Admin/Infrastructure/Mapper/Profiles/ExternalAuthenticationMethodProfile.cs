@@ -5,9 +5,9 @@ using Grand.Web.Areas.Admin.Models.ExternalAuthentication;
 
 namespace Grand.Web.Areas.Admin.Infrastructure.Mapper.Profiles
 {
-    public class IExternalAuthenticationMethodProfile : Profile, IAutoMapperProfile
+    public class ExternalAuthenticationMethodProfile : Profile, IAutoMapperProfile
     {
-        public IExternalAuthenticationMethodProfile()
+        public ExternalAuthenticationMethodProfile()
         {
             CreateMap<IExternalAuthenticationMethod, AuthenticationMethodModel>()
                 .ForMember(dest => dest.FriendlyName, mo => mo.MapFrom(src => src.PluginDescriptor.FriendlyName))
