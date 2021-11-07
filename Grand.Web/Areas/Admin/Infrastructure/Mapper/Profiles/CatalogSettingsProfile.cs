@@ -92,8 +92,8 @@ namespace Grand.Web.Areas.Admin.Infrastructure.Mapper.Profiles
                 .ForMember(dest => dest.LimitOfFeaturedProducts, mo => mo.Ignore())
                 .ForMember(dest => dest.DefaultManufacturerPageSizeOptions, mo => mo.Ignore())
                 .ForMember(dest => dest.DefaultManufacturerPageSize, mo => mo.Ignore())
-                .ForMember(dest => dest.ProductSortingEnumDisabled, mo => mo.Ignore())
-                .ForMember(dest => dest.ProductSortingEnumDisplayOrder, mo => mo.Ignore())
+                .ForMember(dest => dest.ProductSortingDisabled, mo => mo.Ignore())
+                .ForMember(dest => dest.ProductSortingDisplayOrder, mo => mo.Ignore())
                 .ForMember(dest => dest.DisplayQuantityOnCatalogPages, mo => mo.Ignore())
                 .ForMember(dest => dest.SearchBySku, mo => mo.Ignore())
                 .ForMember(dest => dest.ShowProductsFromSubcategoriesInSearchBox, mo => mo.Ignore());

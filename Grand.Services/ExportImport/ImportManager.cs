@@ -909,7 +909,10 @@ namespace Grand.Services.ExportImport
                             }
                             iscategories = true;
                         }
-                        catch { };
+                        catch
+                        {
+                            break;
+                        }
                     }
                     else
                         throw new GrandException("Wrong file format");

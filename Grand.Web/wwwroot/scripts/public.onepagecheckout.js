@@ -81,12 +81,12 @@ var Checkout = {
             });
         }
         
-        //TODO move it to a new method
+        //was todo move it to a new method
         if ($("#billing-address-select").length > 0) {
-            Billing.newAddress(!$('#billing-address-select').val());
+            billingAddressSelect();
         }
         if ($("#shipping-address-select").length > 0) {
-            Shipping.newAddress(!$('#shipping-address-select').val());
+            shippingAddressSelect();
         }
 
         if (response.goto_section) {
@@ -513,3 +513,11 @@ var ConfirmOrder = {
         Checkout.setStepResponse(response);
     }
 };  
+
+function shippingAddressSelect() {
+    Shipping.newAddress(!$('#shipping-address-select').val());
+}
+
+function billingAddressSelect() {
+    Billing.newAddress(!$('#billing-address-select').val());
+}

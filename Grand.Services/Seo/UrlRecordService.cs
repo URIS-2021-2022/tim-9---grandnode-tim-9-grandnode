@@ -117,7 +117,7 @@ namespace Grand.Services.Seo
             await _urlRecordRepository.DeleteAsync(urlRecord);
 
             //cache
-            await _cacheBase.RemoveByPrefix(CacheKey.URLRECORD_PATTERN_KEY);
+            await _cacheBase.RemoveByPrefix(CacheKey.UrlRecord_Pattern_Key);
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Grand.Services.Seo
             await _urlRecordRepository.InsertAsync(urlRecord);
 
             //cache
-            await _cacheBase.RemoveByPrefix(CacheKey.URLRECORD_PATTERN_KEY);
+            await _cacheBase.RemoveByPrefix(CacheKey.UrlRecord_Pattern_Key);
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace Grand.Services.Seo
             await _urlRecordRepository.UpdateAsync(urlRecord);
 
             //cache
-            await _cacheBase.RemoveByPrefix(CacheKey.URLRECORD_PATTERN_KEY);
+            await _cacheBase.RemoveByPrefix(CacheKey.UrlRecord_Pattern_Key);
         }
 
         /// <summary>

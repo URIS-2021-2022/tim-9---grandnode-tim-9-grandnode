@@ -393,7 +393,14 @@ namespace Grand.Services.Discounts
                 else
                 {
                     coupon.Qty = coupon.Qty - 1;
-                    coupon.Used = coupon.Qty > 0 ? true : false;
+                    if(coupon.Qty > 0)
+                    {
+                        coupon.Used=true;
+                    }
+                    if(coupon.Qty >= 0)
+                    {
+                        coupon.Used = false;
+                    }
                 }
                 await _discountCouponRepository.UpdateAsync(coupon);
             }
@@ -720,7 +727,7 @@ namespace Grand.Services.Discounts
                 throw new ArgumentNullException("discount");
 
             //calculate discount amount
-            decimal result = decimal.Zero;
+            decimal result;
             if (!discount.CalculateByPlugin)
             {
                 if (discount.UsePercentage)

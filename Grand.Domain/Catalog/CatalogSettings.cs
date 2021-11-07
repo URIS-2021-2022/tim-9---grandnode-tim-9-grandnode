@@ -7,8 +7,8 @@ namespace Grand.Domain.Catalog
     {
         public CatalogSettings()
         {
-            ProductSortingEnumDisabled = new List<int>();
-            ProductSortingEnumDisplayOrder= new Dictionary<int, int>();
+            ProductSortingDisabled = new List<int>();
+            ProductSortingDisplayOrder= new Dictionary<int, int>();
         }
 
         /// <summary>
@@ -440,14 +440,14 @@ namespace Grand.Domain.Catalog
         /// </summary>
         public int LimitOfFeaturedProducts { get; set; }
         /// <summary>
-        /// Gets or sets a list of disabled values of ProductSortingEnum
+        /// Gets or sets a list of disabled values of ProductSorting
         /// </summary>
-        public List<int> ProductSortingEnumDisabled { get; set; }
+        public List<int> ProductSortingDisabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a display order of ProductSortingEnum values 
+        /// Gets or sets a display order of ProductSorting values 
         /// </summary>
-        public Dictionary<int, int> ProductSortingEnumDisplayOrder { get; set; }
+        public Dictionary<int, int> ProductSortingDisplayOrder { get; set; }
 
         /// <summary>
         /// Gets or sets a sorting by availability

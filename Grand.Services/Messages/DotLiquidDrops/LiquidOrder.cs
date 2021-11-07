@@ -25,7 +25,7 @@ namespace Grand.Services.Messages.DotLiquidDrops
         private OrderNote _orderNote;
         private ICollection<LiquidOrderItem> _orderItems;
         private Vendor _vendor;
-        public LiquidOrder(Order order, Customer customer, Language language, Currency currency, Store store, OrderNote orderNote = null, Vendor vendor = null)
+        public LiquidOrder(Order order, Customer customer, Currency currency, Store store, OrderNote orderNote = null, Vendor vendor = null, Language language=null)
         {
 
             _order = order;

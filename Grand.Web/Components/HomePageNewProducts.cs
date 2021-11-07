@@ -49,7 +49,7 @@ namespace Grand.Web.Components
                 StoreId = _storeContext.CurrentStore.Id,
                 VisibleIndividuallyOnly = true,
                 MarkedAsNewOnly = true,
-                OrderBy = ProductSortingEnum.CreatedOn,
+                OrderBy = ProductSorting.CreatedOn,
                 PageSize = _catalogSettings.NewProductsNumberOnHomePage
             })).products;
 

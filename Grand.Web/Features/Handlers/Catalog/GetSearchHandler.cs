@@ -253,7 +253,7 @@ namespace Grand.Web.Features.Handlers.Catalog
                         SearchProductTags = searchInProductTags,
                         FilteredSpecs = alreadyFilteredSpecOptionIds,
                         LanguageId = request.Language.Id,
-                        OrderBy = (ProductSortingEnum)request.Command.OrderBy,
+                        OrderBy = (ProductSorting)request.Command.OrderBy,
                         PageIndex = request.Command.PageNumber - 1,
                         PageSize = request.Command.PageSize,
                         VendorId = vendorId

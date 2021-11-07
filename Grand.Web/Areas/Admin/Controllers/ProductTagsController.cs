@@ -66,7 +66,7 @@ namespace Grand.Web.Areas.Admin.Controllers
         {
             var tag = await _productTagService.GetProductTagById(tagId);
 
-            var products = (await _productService.SearchProducts(pageIndex: command.Page - 1, pageSize: command.PageSize, productTag: tag.Name, orderBy: Domain.Catalog.ProductSortingEnum.NameAsc)).products;
+            var products = (await _productService.SearchProducts(pageIndex: command.Page - 1, pageSize: command.PageSize, productTag: tag.Name, orderBy: Domain.Catalog.ProductSorting.NameAsc)).products;
             var gridModel = new DataSourceResult
             {
                 Data = products.Select(x => new

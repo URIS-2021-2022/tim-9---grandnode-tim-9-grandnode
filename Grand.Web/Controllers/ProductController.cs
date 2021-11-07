@@ -461,7 +461,7 @@ namespace Grand.Web.Controllers
                 storeId: _storeContext.CurrentStore.Id,
                 visibleIndividuallyOnly: true,
                 markedAsNewOnly: true,
-                orderBy: ProductSortingEnum.CreatedOn,
+                orderBy: ProductSorting.CreatedOn,
                 pageSize: _catalogSettings.NewProductsNumber)).products;
 
 
@@ -491,7 +491,7 @@ namespace Grand.Web.Controllers
                 storeId: _storeContext.CurrentStore.Id,
                 visibleIndividuallyOnly: true,
                 markedAsNewOnly: true,
-                orderBy: ProductSortingEnum.CreatedOn,
+                orderBy: ProductSorting.CreatedOn,
                 pageSize: _catalogSettings.NewProductsNumber)).products;
             foreach (var product in products)
             {

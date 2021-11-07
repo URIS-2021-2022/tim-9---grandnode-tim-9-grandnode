@@ -6,7 +6,8 @@ namespace Grand.Services.Admin
 {
     public static class StandardAdminSiteMap
     {
-        public static readonly List<AdminSiteMap> SiteMap =
+        //obrisala readonly 
+        public static List<AdminSiteMap> SiteMap =
             new List<AdminSiteMap>() {
                 new AdminSiteMap {
                     SystemName = "Dashboard",

@@ -28,8 +28,8 @@ namespace Grand.Api.Validators.Catalog
             {
                 foreach (var item in x.PredefinedProductAttributeValues)
                 {
-                    if (string.IsNullOrEmpty(item.Name))
-                        return false;
+                    if(string.IsNullOrEmpty(item.Name))
+                    return false;
                 }
                 return true;
             }).WithMessage(localizationService.GetResource("Api.Catalog.PredefinedProductAttributeValue.Fields.Name.Required"));

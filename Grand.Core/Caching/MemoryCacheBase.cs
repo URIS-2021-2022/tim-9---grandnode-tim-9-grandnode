@@ -23,15 +23,15 @@ namespace Grand.Core.Caching
         private bool _disposed;
         private static CancellationTokenSource _resetCacheToken = new CancellationTokenSource();
 
-        protected static readonly ConcurrentDictionary<string, bool> _allCacheKeys;
+        protected static readonly ConcurrentDictionary<string, bool> _allCacheKeys = Init_allCacheKeys();
 
         #endregion
 
         #region Ctor
 
-        static MemoryCacheBase()
+        static ConcurrentDictionary<string, bool> Init_allCacheKeys()
         {
-            _allCacheKeys = new ConcurrentDictionary<string, bool>();
+            return new ConcurrentDictionary<string, bool>();
         }
 
         public MemoryCacheBase(IMemoryCache cache, IMediator mediator)

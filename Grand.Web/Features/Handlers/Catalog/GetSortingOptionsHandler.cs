@@ -43,15 +43,15 @@ namespace Grand.Web.Features.Handlers.Catalog
             if (request.Command == null)
                 throw new ArgumentNullException("command");
 
-            var allDisabled = _catalogSettings.ProductSortingEnumDisabled.Count == Enum.GetValues(typeof(ProductSortingEnum)).Length;
+            var allDisabled = _catalogSettings.ProductSortingDisabled.Count == Enum.GetValues(typeof(ProductSorting)).Length;
             request.PagingFilteringModel.AllowProductSorting = _catalogSettings.AllowProductSorting && !allDisabled;
 
-            var activeOptions = Enum.GetValues(typeof(ProductSortingEnum)).Cast<int>()
-                .Except(_catalogSettings.ProductSortingEnumDisabled)
+            var activeOptions = Enum.GetValues(typeof(ProductSorting)).Cast<int>()
+                .Except(_catalogSettings.ProductSortingDisabled)
                 .Select((idOption) =>
                 {
                     int order;
-                    return new KeyValuePair<int, int>(idOption, _catalogSettings.ProductSortingEnumDisplayOrder.TryGetValue(idOption, out order) ? order : idOption);
+                    return new KeyValuePair<int, int>(idOption, _catalogSettings.ProductSortingDisplayOrder.TryGetValue(idOption, out order) ? order : idOption);
                 })
                 .OrderBy(x => x.Value);
             if (request.Command.OrderBy == null)
@@ -64,7 +64,7 @@ namespace Grand.Web.Features.Handlers.Catalog
                     var currentPageUrl = _webHelper.GetThisPageUrl(true);
                     var sortUrl = _webHelper.ModifyQueryString(currentPageUrl, "orderby", (option.Key).ToString());
 
-                    var sortValue = ((ProductSortingEnum)option.Key).GetLocalizedEnum(_localizationService, request.Language.Id);
+                    var sortValue = ((ProductSorting)option.Key).GetLocalizedEnum(_localizationService, request.Language.Id);
                     request.PagingFilteringModel.AvailableSortOptions.Add(new SelectListItem {
                         Text = sortValue,
                         Value = sortUrl,

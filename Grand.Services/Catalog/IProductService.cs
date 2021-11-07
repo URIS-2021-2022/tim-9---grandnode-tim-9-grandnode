@@ -151,7 +151,7 @@ namespace Grand.Services.Catalog
             bool searchProductTags = false,
             string languageId = "",
             IList<string> filteredSpecs = null,
-            ProductSortingEnum orderBy = ProductSortingEnum.Position,
+            ProductSorting orderBy = ProductSorting.Position,
             bool showHidden = false,
             bool? overridePublished = null);
 
