@@ -18,17 +18,19 @@ namespace Grand.Services.Messages.DotLiquidDrops
     public partial class LiquidOrder : Drop
     {
         private Order _order;
+        private Language _language;
         private Customer _customer;
         private Currency _currency;
         private Store _store;
         private OrderNote _orderNote;
         private ICollection<LiquidOrderItem> _orderItems;
         private Vendor _vendor;
-        public LiquidOrder(Order order, Customer customer, Currency currency, Store store, OrderNote orderNote = null, Vendor vendor = null)
+        public LiquidOrder(Order order, Customer customer,Language language, Currency currency, Store store, OrderNote orderNote = null, Vendor vendor = null)
         {
 
             _order = order;
             _customer = customer;
+            _language = language;
             _orderNote = orderNote;
             _currency = currency;
             _store = store;
