@@ -103,8 +103,8 @@ var inlite = (function () {
     return function (editor) {
       for (var i = 0; i < predicateIds.length; i++) {
         if (predicateIds[i].predicate(element)) {
-          var result = $_9qgimi180jm0og6x4.result(predicateIds[i].id, $_2bvkva181jm0og6x5.getElementRect(editor, element));
-          return result;
+            return $_9qgimi180jm0og6x4.result(predicateIds[i].id, $_2bvkva181jm0og6x5.getElementRect(editor, element));
+          
         }
       }
       return null;
