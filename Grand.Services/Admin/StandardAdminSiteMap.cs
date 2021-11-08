@@ -7,7 +7,8 @@ namespace Grand.Services.Admin
     public static class StandardAdminSiteMap
     {
         //obrisala readonly 
-        public static List<AdminSiteMap> SiteMap =
+        //promenila u const
+        public const List<AdminSiteMap> SiteMap =
             new List<AdminSiteMap>() {
                 new AdminSiteMap {
                     SystemName = "Dashboard",
