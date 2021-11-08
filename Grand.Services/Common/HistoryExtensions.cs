@@ -12,7 +12,7 @@ namespace Grand.Services.Common
         /// Save an entity
         /// </summary>
         /// <param name="entity">Entity</param>
-        public static async Task SaveHistory(this BaseEntity entity, IHistoryService historyService) 
+        public static async Task SaveHistory<T>(this BaseEntity entity, IHistoryService historyService) where T: BaseEntity,IHistory
         {
             if (entity == null)
                 throw new ArgumentNullException("entity");
