@@ -38,7 +38,6 @@ namespace Grand.Services.Authentication.External
         private readonly ICustomerService _customerService;
         private readonly IMediator _mediator;
         private readonly IGenericAttributeService _genericAttributeService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILocalizationService _localizationService;
         private readonly IPluginFinder _pluginFinder;
         private readonly IRepository<ExternalAuthenticationRecord> _externalAuthenticationRecordRepository;
@@ -60,7 +59,6 @@ namespace Grand.Services.Authentication.External
             ICustomerService customerService,
             IMediator mediator,
             IGenericAttributeService genericAttributeService,
-            IHttpContextAccessor httpContextAccessor,
             ILocalizationService localizationService,
             IPluginFinder pluginFinder,
             IRepository<ExternalAuthenticationRecord> externalAuthenticationRecordRepository,
@@ -78,7 +76,6 @@ namespace Grand.Services.Authentication.External
             _customerService = customerService;
             _mediator = mediator;
             _genericAttributeService = genericAttributeService;
-            _httpContextAccessor = httpContextAccessor;
             _localizationService = localizationService;
             _pluginFinder = pluginFinder;
             _externalAuthenticationRecordRepository = externalAuthenticationRecordRepository;
