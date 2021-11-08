@@ -239,16 +239,16 @@ namespace Grand.Services.Vendors
         /// Update vendor review totals
         /// </summary>
         /// <param name="vendor">Vendor</param>
-        public virtual async Task UpdateVendorReviewTotals(Vendor vendor)
+        public virtual async Task UpdateVendorReviewTotals(Vendor Vendor)
         {
-            if (vendor == null)
+            if (Vendor == null)
                 throw new ArgumentNullException("vendor");
 
             int approvedRatingSum = 0;
             int notApprovedRatingSum = 0;
             int approvedTotalReviews = 0;
             int notApprovedTotalReviews = 0;
-            var reviews = _vendorReviewRepository.Table.Where(x => x.VendorId == vendor.Id);
+            var reviews = _vendorReviewRepository.Table.Where(x => x.VendorId == Vendor.Id);
             foreach (var pr in reviews)
             {
                 if (pr.IsApproved)
@@ -263,22 +263,22 @@ namespace Grand.Services.Vendors
                 }
             }
 
-            vendor.ApprovedRatingSum = approvedRatingSum;
-            vendor.NotApprovedRatingSum = notApprovedRatingSum;
-            vendor.ApprovedTotalReviews = approvedTotalReviews;
-            vendor.NotApprovedTotalReviews = notApprovedTotalReviews;
+            Vendor.ApprovedRatingSum = approvedRatingSum;
+            Vendor.NotApprovedRatingSum = notApprovedRatingSum;
+            Vendor.ApprovedTotalReviews = approvedTotalReviews;
+            Vendor.NotApprovedTotalReviews = notApprovedTotalReviews;
 
-            var filter = Builders<Vendor>.Filter.Eq("Id", vendor.Id);
+            var filter = Builders<Vendor>.Filter.Eq("Id", Vendor.Id);
             var update = Builders<Vendor>.Update
-                    .Set(x => x.ApprovedRatingSum, vendor.ApprovedRatingSum)
-                    .Set(x => x.NotApprovedRatingSum, vendor.NotApprovedRatingSum)
-                    .Set(x => x.ApprovedTotalReviews, vendor.ApprovedTotalReviews)
-                    .Set(x => x.NotApprovedTotalReviews, vendor.NotApprovedTotalReviews);
+                    .Set(x => x.ApprovedRatingSum, Vendor.ApprovedRatingSum)
+                    .Set(x => x.NotApprovedRatingSum, Vendor.NotApprovedRatingSum)
+                    .Set(x => x.ApprovedTotalReviews, Vendor.ApprovedTotalReviews)
+                    .Set(x => x.NotApprovedTotalReviews, Vendor.NotApprovedTotalReviews);
 
             await _vendorRepository.Collection.UpdateOneAsync(filter, update);
            
             //event notification
-            await _mediator.EntityUpdated(vendor);
+            await _mediator.EntityUpdated(Vendor);
         }
 
         public virtual async Task UpdateVendorReview(VendorReview vendorreview)

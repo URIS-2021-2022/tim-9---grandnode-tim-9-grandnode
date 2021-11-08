@@ -54,9 +54,10 @@ namespace Grand.Core.TypeConverters.Converter
         /// <returns>Result</returns>
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            if (value is string)
+
+            string input = value as string;
+            if (input != null)
             {
-                string input = (string)value;
                 string[] items = string.IsNullOrEmpty(input) ? new string[0] : input.Split(';').Select(x => x.Trim()).ToArray();
 
                 var result = new Dictionary<K, V>();
