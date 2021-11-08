@@ -65,23 +65,38 @@ namespace Grand.Services.Security
         /// <param name="plainText">Text to encrypt</param>
         /// <param name="encryptionPrivateKey">Encryption private key</param>
         /// <returns>Encrypted text</returns>
-           public virtual string EncryptText(string plainText, string encryptionPrivateKey = "")
-           {
-               if (string.IsNullOrEmpty(plainText))
-                   return plainText;
+        /* public virtual string EncryptText(string plainText, string encryptionPrivateKey = "")
+         {
+             if (string.IsNullOrEmpty(plainText))
+                 return plainText;
 
-               if (string.IsNullOrEmpty(encryptionPrivateKey))
-                   encryptionPrivateKey = _securitySettings.EncryptionKey;
+             if (string.IsNullOrEmpty(encryptionPrivateKey))
+                 encryptionPrivateKey = _securitySettings.EncryptionKey;
 
-            var AES = new AesManaged();
+          var AES = new AesManaged();
 
-               AES.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
-               AES.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
+             AES.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
+             AES.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
 
-               byte[] encryptedBinary = EncryptTextToMemory(plainText, AES.Key, AES.IV);
-               return Convert.ToBase64String(encryptedBinary);
-           }
-       
+             byte[] encryptedBinary = EncryptTextToMemory(plainText, AES.Key, AES.IV);
+             return Convert.ToBase64String(encryptedBinary);
+         }
+        */
+        public virtual string EncryptText(string plainText, string encryptionPrivateKey = "")
+        {
+            if (string.IsNullOrEmpty(plainText))
+                return plainText;
+            if (string.IsNullOrEmpty(encryptionPrivateKey))
+                encryptionPrivateKey = _securitySettings.EncryptionKey;
+            var tDESalg = TripleDES.Create();
+            tDESalg.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
+            tDESalg.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
+            byte[] encryptedBinary = EncryptTextToMemory(plainText, tDESalg.Key, tDESalg.IV);
+            return Convert.ToBase64String(encryptedBinary);
+        }
+
+
+
 
         /// <summary>
         /// Decrypt text
