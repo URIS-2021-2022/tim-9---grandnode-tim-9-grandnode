@@ -207,6 +207,7 @@ function displayPopupQuickView(html) {
 
 
 function displayBarNotification(message, messagetype, timeout) {
+    var toastHTML;
     if (messagetype == 'error') {
         toastHTML = '<b-toast id="grandToast" auto-hide-delay=' + timeout +' variant="danger" title=' + messagetype +'>'+ message +'</b-toast>'
     } else {
