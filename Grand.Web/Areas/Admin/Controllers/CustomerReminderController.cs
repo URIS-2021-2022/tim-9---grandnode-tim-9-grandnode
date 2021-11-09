@@ -793,7 +793,7 @@ namespace Grand.Web.Areas.Admin.Controllers
 
             if (level.Level != model.Level)
             {
-                if (customerReminder.Levels.FirstOrDefault(x => x.Level == model.Level).Count() > 0)
+                if (customerReminder.Levels.Count(x => x.Level == model.Level).Count() > 0)
                 {
                     ModelState.AddModelError("Error-LevelExists", _localizationService.GetResource("Admin.Customers.CustomerReminderLevel.Exists"));
                 }
