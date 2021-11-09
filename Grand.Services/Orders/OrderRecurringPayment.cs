@@ -215,9 +215,8 @@ namespace Grand.Services.Orders
             if (initialOrder.OrderStatus == OrderStatus.Cancelled)
                 return false;
 
-            if (!customerToValidate.IsAdmin())
+            if (!customerToValidate.IsAdmin() && (customer.Id != customerToValidate.Id))
             {
-                if (customer.Id != customerToValidate.Id)
                     return false;
             }
 
