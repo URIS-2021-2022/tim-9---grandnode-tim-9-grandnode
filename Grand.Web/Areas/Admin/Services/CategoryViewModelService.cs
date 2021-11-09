@@ -119,7 +119,7 @@ namespace Grand.Web.Areas.Admin.Services
             if (model == null)
                 throw new ArgumentNullException("model");
 
-            model.AvailableSortOptions = ProductSortingEnum.Position.ToSelectList().ToList();
+            model.AvailableSortOptions = ProductSorting.Position.ToSelectList().ToList();
             model.AvailableSortOptions.Insert(0, new SelectListItem { Text = "None", Value = "-1" });
         }
 

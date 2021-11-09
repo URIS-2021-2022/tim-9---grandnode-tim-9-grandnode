@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Grand.Core.Plugins
@@ -37,11 +38,11 @@ namespace Grand.Core.Plugins
 
         public static async Task SaveInstalledPluginsFile(IList<string> pluginSystemNames, string filePath)
         {
-            string result = "";
+            StringBuilder result = new StringBuilder();
             foreach (var sn in pluginSystemNames)
-                result += string.Format("{0}{1}", sn, Environment.NewLine);
+                result.Append(string.Format("{0}{1}", sn, Environment.NewLine));
 
-            await File.WriteAllTextAsync(filePath, result);
+            await File.WriteAllTextAsync(filePath, result.ToString());
             await Task.CompletedTask;
         }
 

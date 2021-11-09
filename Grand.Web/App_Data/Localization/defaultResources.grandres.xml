@@ -18082,31 +18082,31 @@
   <LocaleResource Name="Enums.Grand.Domain.Catalog.ManageInventoryMethod.ManageStockByBundleProducts">
     <Value>Track inventory by bundle products</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.BestSellers">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.BestSellers">
     <Value>Best Sellers</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.CreatedOn">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.CreatedOn">
     <Value>Created on</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.MostViewed">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.MostViewed">
     <Value>Most Viewed</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.NameAsc">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.NameAsc">
     <Value>Name: A to Z</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.NameDesc">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.NameDesc">
     <Value>Name: Z to A</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.OnSale">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.OnSale">
     <Value>On Sale</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.Position">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.Position">
     <Value>Position</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.PriceAsc">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.PriceAsc">
     <Value>Price: Low to High</Value>
   </LocaleResource>
-  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSortingEnum.PriceDesc">
+  <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductSorting.PriceDesc">
     <Value>Price: High to Low</Value>
   </LocaleResource>
   <LocaleResource Name="Enums.Grand.Domain.Catalog.ProductType.BundledProduct">

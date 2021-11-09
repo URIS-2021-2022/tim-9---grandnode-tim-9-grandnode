@@ -165,7 +165,7 @@ namespace Grand.Web.Areas.Admin.Services
         }
         public virtual async Task<CustomerAction> UpdateCustomerActionModel(CustomerAction customeraction, CustomerActionModel model)
         {
-            if (customeraction.Conditions.Count() > 0)
+            if (customeraction.Conditions.Any())
                 model.ActionTypeId = customeraction.ActionTypeId;
             if (String.IsNullOrEmpty(model.ActionTypeId))
                 model.ActionTypeId = customeraction.ActionTypeId;

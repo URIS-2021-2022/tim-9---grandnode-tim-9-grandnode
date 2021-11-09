@@ -247,58 +247,58 @@ namespace Grand.Services.Queries.Handlers.Catalog
                 sort = builderSort.Ascending(x => x.LowStock);
             }
             
-            if (request.OrderBy == ProductSortingEnum.Position && request.CategoryIds != null && request.CategoryIds.Any())
+            if (request.OrderBy == ProductSorting.Position && request.CategoryIds != null && request.CategoryIds.Any())
             {
                 //category position
                 sort = sort == null ? builderSort.Ascending(x => x.DisplayOrderCategory) : sort.Ascending(x => x.DisplayOrderCategory);
             }
-            else if (request.OrderBy == ProductSortingEnum.Position && !string.IsNullOrEmpty(request.ManufacturerId))
+            else if (request.OrderBy == ProductSorting.Position && !string.IsNullOrEmpty(request.ManufacturerId))
             {
                 //manufacturer position
                 sort = sort == null ? builderSort.Ascending(x => x.DisplayOrderManufacturer) : sort.Ascending(x => x.DisplayOrderManufacturer);
             }
-            else if (request.OrderBy == ProductSortingEnum.Position)
+            else if (request.OrderBy == ProductSorting.Position)
             {
                 //otherwise sort by name
                 sort = sort == null ? builderSort.Ascending(x => x.Name) : sort.Ascending(x => x.Name);
             }
-            else if (request.OrderBy == ProductSortingEnum.NameAsc)
+            else if (request.OrderBy == ProductSorting.NameAsc)
             {
                 //Name: A to Z
                 sort = sort == null ? builderSort.Ascending(x => x.Name) : sort.Ascending(x => x.Name);
             }
-            else if (request.OrderBy == ProductSortingEnum.NameDesc)
+            else if (request.OrderBy == ProductSorting.NameDesc)
             {
                 //Name: Z to A
                 sort = sort == null ? builderSort.Descending(x => x.Name) : sort.Descending(x => x.Name);
             }
-            else if (request.OrderBy == ProductSortingEnum.PriceAsc)
+            else if (request.OrderBy == ProductSorting.PriceAsc)
             {
                 //Price: Low to High
                 sort = sort == null ? builderSort.Ascending(x => x.Price) : sort.Ascending(x => x.Price);
             }
-            else if (request.OrderBy == ProductSortingEnum.PriceDesc)
+            else if (request.OrderBy == ProductSorting.PriceDesc)
             {
                 //Price: High to Low
                 sort = sort == null ? builderSort.Descending(x => x.Price) : sort.Descending(x => x.Price);
             }
-            else if (request.OrderBy == ProductSortingEnum.CreatedOn)
+            else if (request.OrderBy == ProductSorting.CreatedOn)
             {
                 //creation date
                 sort = sort == null ? builderSort.Ascending(x => x.CreatedOnUtc) : sort.Ascending(x => x.CreatedOnUtc);
 
             }
-            else if (request.OrderBy == ProductSortingEnum.OnSale)
+            else if (request.OrderBy == ProductSorting.OnSale)
             {
                 //on sale
                 sort = sort == null ? builderSort.Descending(x => x.OnSale) : sort.Descending(x => x.OnSale);
             }
-            else if (request.OrderBy == ProductSortingEnum.MostViewed)
+            else if (request.OrderBy == ProductSorting.MostViewed)
             {
                 //most viewed
                 sort = sort == null ? builderSort.Descending(x => x.Viewed) : sort.Descending(x => x.Viewed);
             }
-            else if (request.OrderBy == ProductSortingEnum.BestSellers)
+            else if (request.OrderBy == ProductSorting.BestSellers)
             {
                 //best seller
                 sort = sort == null ? builderSort.Descending(x => x.Sold) : sort.Descending(x => x.Sold);

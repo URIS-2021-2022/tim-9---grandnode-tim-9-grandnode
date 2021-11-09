@@ -31,7 +31,7 @@ namespace Grand.Services.Queries.Models.Catalog
         public bool SearchProductTags { get; set; } = false;
         public string LanguageId { get; set; } = "";
         public IList<string> FilteredSpecs { get; set; } = null;
-        public ProductSortingEnum OrderBy { get; set; } = ProductSortingEnum.Position;
+        public ProductSorting OrderBy { get; set; } = ProductSorting.Position;
         public bool ShowHidden { get; set; } = false;
         public bool? OverridePublished { get; set; } = null;
     }

@@ -806,13 +806,13 @@ namespace Grand.Web.Areas.Admin.Controllers
             var storeScope = await GetActiveStoreScopeConfiguration(_storeService, _workContext);
             var catalogSettings = _settingService.LoadSetting<CatalogSettings>(storeScope);
             var model = new List<SortOptionModel>();
-            foreach (int option in Enum.GetValues(typeof(ProductSortingEnum)))
+            foreach (int option in Enum.GetValues(typeof(ProductSorting)))
             {
                 model.Add(new SortOptionModel() {
                     Id = option,
-                    Name = ((ProductSortingEnum)option).GetLocalizedEnum(_localizationService, _workContext),
-                    IsActive = !catalogSettings.ProductSortingEnumDisabled.Contains(option),
-                    DisplayOrder = catalogSettings.ProductSortingEnumDisplayOrder.TryGetValue(option, out int value) ? value : option
+                    Name = ((ProductSorting)option).GetLocalizedEnum(_localizationService, _workContext),
+                    IsActive = !catalogSettings.ProductSortingDisabled.Contains(option),
+                    DisplayOrder = catalogSettings.ProductSortingDisplayOrder.TryGetValue(option, out int value) ? value : option
                 });
             }
             var gridModel = new DataSourceResult {
@@ -828,14 +828,14 @@ namespace Grand.Web.Areas.Admin.Controllers
             var storeScope = await GetActiveStoreScopeConfiguration(_storeService, _workContext);
             var catalogSettings = _settingService.LoadSetting<CatalogSettings>(storeScope);
 
-            catalogSettings.ProductSortingEnumDisplayOrder[model.Id] = model.DisplayOrder;
-            if (model.IsActive && catalogSettings.ProductSortingEnumDisabled.Contains(model.Id))
-                catalogSettings.ProductSortingEnumDisabled.Remove(model.Id);
-            if (!model.IsActive && !catalogSettings.ProductSortingEnumDisabled.Contains(model.Id))
-                catalogSettings.ProductSortingEnumDisabled.Add(model.Id);
+            catalogSettings.ProductSortingDisplayOrder[model.Id] = model.DisplayOrder;
+            if (model.IsActive && catalogSettings.ProductSortingDisabled.Contains(model.Id))
+                catalogSettings.ProductSortingDisabled.Remove(model.Id);
+            if (!model.IsActive && !catalogSettings.ProductSortingDisabled.Contains(model.Id))
+                catalogSettings.ProductSortingDisabled.Add(model.Id);
 
-            await _settingService.SaveSetting(catalogSettings, x => x.ProductSortingEnumDisabled, storeScope, false);
-            await _settingService.SaveSetting(catalogSettings, x => x.ProductSortingEnumDisplayOrder, storeScope, false);
+            await _settingService.SaveSetting(catalogSettings, x => x.ProductSortingDisabled, storeScope, false);
+            await _settingService.SaveSetting(catalogSettings, x => x.ProductSortingDisplayOrder, storeScope, false);
 
             await ClearCache();
 

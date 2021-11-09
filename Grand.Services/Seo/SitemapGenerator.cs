@@ -266,7 +266,7 @@ namespace Grand.Services.Seo
         protected virtual async Task<IEnumerable<SitemapUrl>> GetProductUrls(IUrlHelper urlHelper, string language, string store)
         {
             var search = await _productService.SearchProducts(storeId: store,
-                visibleIndividuallyOnly: true, orderBy: ProductSortingEnum.CreatedOn);
+                visibleIndividuallyOnly: true, orderBy: ProductSorting.CreatedOn);
             var storeLocation = _webHelper.GetStoreLocation();
             var products = new List<SitemapUrl>();
             foreach (var product in search.products)

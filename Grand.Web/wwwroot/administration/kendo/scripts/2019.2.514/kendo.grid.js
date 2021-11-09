@@ -57,7 +57,7 @@ var __meta__ = {
 };
 
 /* jshint eqnull: true */
-(function($, undefined) {
+(function($, undef) {
     var kendo = window.kendo,
         ui = kendo.ui,
         DataSource = kendo.data.DataSource,

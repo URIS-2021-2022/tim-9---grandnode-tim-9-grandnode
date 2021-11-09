@@ -13,7 +13,7 @@ namespace Grand.Framework.Themes
         #region Fields
 
         private readonly IList<ThemeConfiguration> _themeConfigurations = new List<ThemeConfiguration>();
-        private readonly string _basePath = string.Empty;
+        private readonly string _basePath;
 
         #endregion
 

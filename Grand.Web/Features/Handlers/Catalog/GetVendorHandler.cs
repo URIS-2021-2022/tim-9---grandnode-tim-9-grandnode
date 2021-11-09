@@ -112,7 +112,7 @@ namespace Grand.Web.Features.Handlers.Catalog
                 StoreId = request.Store.Id,
                 FilteredSpecs = alreadyFilteredSpecOptionIds,
                 VisibleIndividuallyOnly = true,
-                OrderBy = (ProductSortingEnum)request.Command.OrderBy,
+                OrderBy = (ProductSorting)request.Command.OrderBy,
                 PageIndex = request.Command.PageNumber - 1,
                 PageSize = request.Command.PageSize
             }));

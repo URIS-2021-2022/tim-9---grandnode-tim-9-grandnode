@@ -7,7 +7,6 @@ namespace Grand.Core.TypeFinders
     {
         #region Fields
 
-        private bool _ensureBinFolderAssembliesLoaded = true;
         private bool _binFolderAssembliesLoaded;
 
         #endregion
@@ -19,8 +18,8 @@ namespace Grand.Core.TypeFinders
         /// </summary>
         public bool EnsureBinFolderAssembliesLoaded
         {
-            get { return _ensureBinFolderAssembliesLoaded; }
-            set { _ensureBinFolderAssembliesLoaded = value; }
+            get;
+            set;
         }
 
         #endregion
