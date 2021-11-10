@@ -170,6 +170,11 @@ namespace Grand.Services.Customers
             }
 
             var liquidObject = new LiquidObject();
+
+            if(liquidObject == null) 
+            { MessageBox.Show("object is null", "error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                goto CheckCondition }
+
             await _messageTokenProvider.AddStoreTokens(liquidObject, store, language, emailAccount);
             await _messageTokenProvider.AddCustomerTokens(liquidObject, customer, store, language);
             await _messageTokenProvider.AddShoppingCartTokens(liquidObject, customer, store, language);
