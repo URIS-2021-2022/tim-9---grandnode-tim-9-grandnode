@@ -124,17 +124,9 @@ namespace Grand.Services.Security
 
         private byte[] EncryptTextToMemory(string data, byte[] key, byte[] iv)
         {
-            // Check arguments.
-            if (data == null || data.Length <= 0)
-                throw new ArgumentNullException("data");
-            if (key == null || key.Length <= 0)
-                throw new ArgumentNullException("key");
-            if (iv == null || iv.Length <= 0)
-                throw new ArgumentNullException("iv");
-
             using (var ms = new MemoryStream())
             {
-                using (var cs = new CryptoStream(ms, Aes.Create().CreateEncryptor(key, iv), CryptoStreamMode.Write))
+                using (var cs = new CryptoStream(ms, TripleDES.Create().CreateEncryptor(key, iv), CryptoStreamMode.Write))
                 {
                     byte[] toEncrypt = new UnicodeEncoding().GetBytes(data);
                     cs.Write(toEncrypt, 0, toEncrypt.Length);
