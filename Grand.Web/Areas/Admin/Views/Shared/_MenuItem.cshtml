@@ -13,49 +13,51 @@
     {
         url = Model.Url.StartsWith("~/", StringComparison.Ordinal) ? Url.Content(Model.Url) : Model.Url;
     }
-    <li>
-        @{
-            var childNodes = Model.ChildNodes.Where(x => x.Visible).ToList();
-        }
-        @if (childNodes.Any())
-        {
-            <a class="nav-link">
-                @if (!String.IsNullOrEmpty(Model.IconClass))
-                {
-                    <i class="@Model.IconClass"></i>
-                }
-                <span class="title">@T(Model.ResourceName)</span>
-                @if (childNodes.Any())
-                {
-                    <span class="fa fa-chevron-right"></span>
-                }
+    <ul>
+        <li>
+            @{
+                var childNodes = Model.ChildNodes.Where(x => x.Visible).ToList();
+            }
+            @if (childNodes.Any())
+            {
+                <a class="nav-link">
+                    @if (!String.IsNullOrEmpty(Model.IconClass))
+                    {
+                        <i class="@Model.IconClass"></i>
+                    }
+                    <span class="title">@T(Model.ResourceName)</span>
+                    @if (childNodes.Any())
+                    {
+                        <span class="fa fa-chevron-right"></span>
+                    }
 
-            </a>
-        }
-        else
-        {
-            <a href="@url" class="nav-link" @(Model.OpenUrlInNewTab ? Html.Raw(" target=\"_blank\"") : null)>
-                @if (!String.IsNullOrEmpty(Model.IconClass))
-                {
-                    <i class="@Model.IconClass"></i>
-                }
-                <span class="title">@T(Model.ResourceName)</span>
-                @if (childNodes.Any())
-                {
-                    <span class="fa fa-chevron-right"></span>
-                }
+                </a>
+            }
+            else
+            {
+                <a href="@url" class="nav-link" @(Model.OpenUrlInNewTab ? Html.Raw(" target=\"_blank\"") : null)>
+                    @if (!String.IsNullOrEmpty(Model.IconClass))
+                    {
+                        <i class="@Model.IconClass"></i>
+                    }
+                    <span class="title">@T(Model.ResourceName)</span>
+                    @if (childNodes.Any())
+                    {
+                        <span class="fa fa-chevron-right"></span>
+                    }
 
-            </a>
-        }
+                </a>
+            }
 
-        @if (childNodes.Any())
-        {
-            <ul class="nav child_menu">
-                @foreach (var childItem in childNodes)
-                {
-                    <partial name="_MenuItem" model="childItem" />
-                }
-            </ul>
-        }
-    </li>
-}
+            @if (childNodes.Any())
+            {
+                <ul class="nav child_menu">
+                    @foreach (var childItem in childNodes)
+                    {
+                        <partial name="_MenuItem" model="childItem" />
+                    }
+                </ul>
+            }
+        </li>
+    </ul>
+    }
