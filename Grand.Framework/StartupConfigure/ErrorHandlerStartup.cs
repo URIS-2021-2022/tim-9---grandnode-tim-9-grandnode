@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Grand.Framework.StartupConfigure
 {
@@ -19,6 +20,7 @@ namespace Grand.Framework.StartupConfigure
         /// <param name="configuration">Configuration root of the application</param>
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            throw new NotSupportedException();
         }
 
         /// <summary>
