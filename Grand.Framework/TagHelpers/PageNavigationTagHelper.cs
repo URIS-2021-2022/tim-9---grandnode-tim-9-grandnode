@@ -101,8 +101,8 @@ namespace Grand.Framework.TagHelpers
 
             if (!string.IsNullOrEmpty(links))
             {
-                var sb = new StringBuilder();
-                sb.AppendFormat("<nav aria-label=\"Page navigation\">");
+                var sb = new StringBuilder("<nav aria-label=\"Page navigation\">");
+                
                 sb.Append(Environment.NewLine);
                 sb.AppendFormat(links);
                 sb.Append(Environment.NewLine);

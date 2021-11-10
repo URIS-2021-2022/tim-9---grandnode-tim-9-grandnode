@@ -6,12 +6,12 @@ namespace Grand.Services.ExportImport.Help
 {
     public class PropertyHelperList<T>
     {
-        private static T obj;
+        private T obj;
 
         public PropertyHelperList(T obj1)
         {
             ObjectList = new List<PropertyHelperList<T>>();
-            obj = obj1;
+            this.obj = obj1;
         }
         public List<PropertyHelperList<T>> ObjectList { get; set; }
 

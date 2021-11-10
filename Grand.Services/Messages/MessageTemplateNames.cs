@@ -3,6 +3,8 @@ namespace Grand.Services.Messages
 {
     public class MessageTemplateNames
     {
+        protected MessageTemplateNames() { }
+
         public const string CustomerRegistered = "NewCustomer.Notification";
         public const string CustomerWelcome = "Customer.WelcomeMessage";
         public const string CustomerEmailValidation = "Customer.EmailValidationMessage";
