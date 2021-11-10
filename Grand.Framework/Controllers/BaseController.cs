@@ -66,14 +66,14 @@ namespace Grand.Framework.Controllers
             if (viewData == null)
             {
                 throw new NotImplementedException();
-                //TODO viewData = new ViewDataDictionary(_modelMetadataProvider, context.ModelState);
+                
             }
 
             var tempData = TempData;
             if (tempData == null)
             {
                 throw new NotImplementedException();
-                //TODO tempData = _tempDataDictionaryFactory.GetTempData(context.HttpContext);
+                
             }
 
             using (var writer = new StringWriter())
