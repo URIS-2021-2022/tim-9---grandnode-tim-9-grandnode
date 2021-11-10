@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -113,18 +114,19 @@ namespace Grand.Web.Features.Handlers.Catalog
                 foreach (var c in allCategories)
                 {
                     //generate full category name (breadcrumb)
-                    string categoryBreadcrumb = "";
+                    StringBuilder result = new StringBuilder();
                     var breadcrumb = _categoryService.GetCategoryBreadCrumb(c, allCategories);
                     for (int i = 0; i <= breadcrumb.Count - 1; i++)
                     {
-                        categoryBreadcrumb += breadcrumb[i].GetLocalized(x => x.Name, request.Language.Id);
+                        
+                        result.Append(breadcrumb[i].GetLocalized(x => x.Name, request.Language.Id));
                         if (i != breadcrumb.Count - 1)
-                            categoryBreadcrumb += " >> ";
+                            result.Append(" >> ");
                     }
                     categoriesModel.Add(new SearchModel.CategoryModel {
                         Id = c.Id,
-                        Breadcrumb = categoryBreadcrumb
-                    });
+                        Breadcrumb = result.ToString()
+                    }) ; ;
                 }
                 return categoriesModel;
             });

@@ -58,14 +58,14 @@ namespace Grand.Framework.Mvc.Filters
             /// Called early in the filter pipeline to confirm request is authorized
             /// </summary>
             /// <param name="filterContext">Authorization filter context</param>
-            public async Task OnAuthorizationAsync(AuthorizationFilterContext filterContext)
+            public async Task OnAuthorizationAsync(AuthorizationFilterContext context)
             {
                 
-                if (filterContext == null)
+                if (context == null)
                     throw new ArgumentNullException("filterContext");
 
                 //check whether this filter has been overridden for the action
-                var actionFilter = filterContext.ActionDescriptor.FilterDescriptors
+                var actionFilter = context.ActionDescriptor.FilterDescriptors
                     .Where(f => f.Scope == FilterScope.Action)
                     .Select(f => f.Filter).OfType<AuthorizeAdminAttribute>().FirstOrDefault();
 
@@ -77,11 +77,11 @@ namespace Grand.Framework.Mvc.Filters
                     return;
 
                 //there is AdminAuthorizeFilter, so check access
-                if (filterContext.Filters.Any(filter => filter is AuthorizeAdminFilter))
+                if (context.Filters.Any(filter => filter is AuthorizeAdminFilter))
                 {
                     //authorize permission of access to the admin area
                     if (!await _permissionService.Authorize(StandardPermissionProvider.AccessAdminPanel))
-                        filterContext.Result = new RedirectToRouteResult("AdminLogin", new RouteValueDictionary());
+                        context.Result = new RedirectToRouteResult("AdminLogin", new RouteValueDictionary());
                 }
             }
 

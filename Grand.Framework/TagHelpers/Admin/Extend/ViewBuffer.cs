@@ -384,7 +384,7 @@ namespace Grand.Framework.TagHelpers.Admin
             Clear();
         }
 
-        private class EncodingWrapper : IHtmlContent
+        private sealed class EncodingWrapper : IHtmlContent
         {
             private readonly string _unencoded;
 

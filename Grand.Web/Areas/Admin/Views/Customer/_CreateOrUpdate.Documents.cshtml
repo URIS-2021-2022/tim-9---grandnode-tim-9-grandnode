@@ -6,7 +6,7 @@
         <div id="customer-documents-grid"></div>
     </div>
     <div class="panel-footer">
-        <button type="button" class="k-button" onclick="location.href='@Url.Action("CreateDocument", "Document", new { customerId = Model.Id })'"><i class="fa fa-plus"></i>&nbsp;@T("Admin.Customers.Document.Add")</button>
+        <button type="button" class="k-button" onclick="location.href='@Url.Action("CreateDocument", "Document", new { customerId = Model.Id })'"><em class="fa fa-plus"></em>&nbsp;@T("Admin.Customers.Document.Add")</button>
     </div>
     <vc:admin-widget widget-zone="customer_details_documents_bottom" additional-data="Model" />
 </div>

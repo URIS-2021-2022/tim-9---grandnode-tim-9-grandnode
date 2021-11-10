@@ -80,7 +80,7 @@ namespace Grand.Web.Areas.Admin.Controllers
             if (!System.IO.File.Exists(filePath))
             {
                 //we use 'using' to close the file after it's created
-                using (System.IO.File.Create(filePath)) { }
+                using (System.IO.File.Create(filePath));
             }
 
             //try to read existing configuration

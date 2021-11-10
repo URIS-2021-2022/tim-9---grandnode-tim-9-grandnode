@@ -139,6 +139,7 @@ namespace Grand.Services.Customers.Tests
             var action = await _customerActionService.GetCustomerActionById(_Id_CustomerAction);
             action.Name = "Update test 2";
             await _customerActionService.UpdateCustomerAction(action);
+            Assert.AreNotSame(action, _customerActionService);
         }
 
         [TestMethod()]

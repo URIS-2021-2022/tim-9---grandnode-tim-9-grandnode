@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 
 namespace Grand.Core.TypeConverters.Converter
 {
@@ -54,9 +55,10 @@ namespace Grand.Core.TypeConverters.Converter
         /// <returns>Result</returns>
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            if (value is string)
+
+            string input = value as string;
+            if (input != null)
             {
-                string input = (string)value;
                 string[] items = string.IsNullOrEmpty(input) ? new string[0] : input.Split(';').Select(x => x.Trim()).ToArray();
 
                 var result = new Dictionary<K, V>();
@@ -95,6 +97,7 @@ namespace Grand.Core.TypeConverters.Converter
         {
             if (destinationType == typeof(string))
             {
+                StringBuilder bld = new StringBuilder();
                 string result = string.Empty;
                 if (value != null)
                 {
@@ -103,12 +106,14 @@ namespace Grand.Core.TypeConverters.Converter
                     var dictionary = (IDictionary<K, V>)value;
                     foreach (var keyValue in dictionary)
                     {
-                        result += string.Format("{0},{1}", Convert.ToString(keyValue.Key, CultureInfo.InvariantCulture), Convert.ToString(keyValue.Value, CultureInfo.InvariantCulture));
+                        bld.Append(string.Format("{0},{1}", Convert.ToString(keyValue.Key, CultureInfo.InvariantCulture), Convert.ToString(keyValue.Value, CultureInfo.InvariantCulture)));
                         //don't add ; after the last element
                         if (counter != dictionary.Count - 1)
-                            result += ";";
+                            bld.Append(";");
+                        
                         counter++;
                     }
+                    result=bld.ToString();
                 }
                 return result;
             }

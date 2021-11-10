@@ -19,7 +19,7 @@
     <input asp-for="@Model" type="hidden" />
 </div>
 <div id="@(clientId + "image")">
-    <img src="@(await pictureService.GetPictureUrl(Model, targetSize: targetPictureSize, showDefaultPicture: true))" />
+    <img src="@(await pictureService.GetPictureUrl(Model, targetSize: targetPictureSize, showDefaultPicture: true))" alt="pictureGrandNode" />
 </div>
 @if (picture != null)
 {

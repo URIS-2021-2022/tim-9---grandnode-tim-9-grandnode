@@ -8,7 +8,6 @@ function OpenWindow(query, w, h, scroll) {
 
     winprops = 'resizable=1, height=' + h + ',width=' + w + ',top=' + t + ',left=' + l + 'w';
     if (scroll) winprops += ',scrollbars=1';
-    var f = window.open(query, "_blank", winprops);
 }
 
 function showThrobber(message) {

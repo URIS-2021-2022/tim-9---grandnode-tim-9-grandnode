@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Grand.Framework.StartupConfigure
 {
@@ -18,8 +19,18 @@ namespace Grand.Framework.StartupConfigure
         /// <param name="configuration">Configuration root of the application</param>
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
+            //There are several reasons for a method not to have a method body:
 
+            //It is an unintentional omission, and should be fixed.
+            //It is not yet, or never will be, supported. In this case a NotSupportedException should be thrown.
+            //The method is an intentionally - blank override. In this case a nested comment should explain the reason for the blank override.
         }
+
+        public void ConfigureServicesElse()
+        {
+            throw new NotSupportedException();
+        }
+
 
         /// <summary>
         /// Configure the using of added middleware

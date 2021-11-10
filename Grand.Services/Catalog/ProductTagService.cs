@@ -52,11 +52,7 @@ namespace Grand.Services.Catalog
 
         #region Nested classes
 
-        private class ProductTagWithCount
-        {
-            public int ProductTagId { get; set; }
-            public int ProductCount { get; set; }
-        }
+        
 
         #endregion
 

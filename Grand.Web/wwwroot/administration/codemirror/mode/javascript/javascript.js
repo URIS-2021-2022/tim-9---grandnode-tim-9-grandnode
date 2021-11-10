@@ -205,7 +205,6 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
           if (next == ch && stream.string.charAt(pos - 2) != "\\") { pos--; break }
         }
       } else if (sawSomething && !depth) {
-        ++pos;
         break;
       }
     }

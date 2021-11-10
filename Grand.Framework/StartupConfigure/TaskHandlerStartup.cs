@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Linq;
 
 namespace Grand.Framework.StartupConfigure
@@ -25,7 +26,12 @@ namespace Grand.Framework.StartupConfigure
         /// <param name="webHostEnvironment">WebHostEnvironment</param>
         public void Configure(IApplicationBuilder application, IWebHostEnvironment webHostEnvironment)
         {
-
+            // It is an unintentional omission, and should be fixed.
+            //It is not yet, or never will be, supported. In this case a NotSupportedException should be thrown.
+        }
+        public void ConfigureElse()
+        {
+            throw new NotSupportedException();
         }
 
         /// <summary>

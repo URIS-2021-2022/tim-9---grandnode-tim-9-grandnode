@@ -2,6 +2,6 @@
 {
     public static class FacebookPixelConst
     {
-        public static string ConsentCookieSystemName = "FacebookPixel";
+        public const string ConsentCookieSystemName = "FacebookPixel";
     }
 }

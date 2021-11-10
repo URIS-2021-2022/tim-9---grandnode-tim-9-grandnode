@@ -1408,14 +1408,17 @@
             },
             _shouldTrigger: function shouldTrigger(keyName, $e) {
                 var trigger;
-                switch (keyName) {
-                    case "tab":
-                        trigger = !withModifier($e);
-                        break;
-
-                    default:
-                        trigger = true;
+                if (String.Compare(keyName, "tab") == 0) {
+                    trigger = !withModifier($e);
+                    break;
                 }
+
+                    else {
+                    trigger = true;
+
+                }
+                        
+                
                 return trigger;
             },
             _checkLanguageDirection: function checkLanguageDirection() {
