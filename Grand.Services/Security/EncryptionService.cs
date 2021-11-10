@@ -112,7 +112,7 @@ namespace Grand.Services.Security
             if (string.IsNullOrEmpty(encryptionPrivateKey))
                 encryptionPrivateKey = _securitySettings.EncryptionKey;
 
-            var tDESalg = TripleDES.Create();
+            var tDESalg = Aes.Create();
             tDESalg.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
             tDESalg.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
 
