@@ -19,7 +19,7 @@ namespace Grand.Core.Data
             {
                 var manager = new DataSettingsManager();
                 var settings = manager.LoadSettings();
-                if (settings = null) {
+                if (settings == null) {
                     throw new ArgumentNullException("settings");
                 }
                 else
