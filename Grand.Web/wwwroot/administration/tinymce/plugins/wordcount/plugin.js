@@ -39,20 +39,20 @@ var wordcount = (function () {
     AT: 12,
     OTHER: 13
   };
-  var SETS = [
-    new RegExp(regExps.aletter),
-    new RegExp(regExps.midnumlet),
-    new RegExp(regExps.midletter),
-    new RegExp(regExps.midnum),
-    new RegExp(regExps.numeric),
-    new RegExp(regExps.cr),
-    new RegExp(regExps.lf),
-    new RegExp(regExps.newline),
-    new RegExp(regExps.extend),
-    new RegExp(regExps.format),
-    new RegExp(regExps.katakana),
-    new RegExp(regExps.extendnumlet),
-    new RegExp('@')
+    var SETS = [
+        new RegExp(regExps.aletter),
+        new RegExp(regExps.midnumlet),
+        new RegExp(regExps.midletter),
+        new RegExp(regExps.midnum),
+        new RegExp(regExps.numeric),
+        new RegExp(regExps.cr),
+        new RegExp(regExps.lf),
+        new RegExp(regExps.newline),
+        new RegExp(regExps.extend),
+        new RegExp(regExps.format),
+        new RegExp(regExps.katakana),
+        new RegExp(regExps.extendnumlet),
+        /'@'/
   ];
   var EMPTY_STRING = '';
   var PUNCTUATION = new RegExp('^' + regExps.punctuation + '$');

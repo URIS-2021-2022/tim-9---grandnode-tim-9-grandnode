@@ -325,8 +325,8 @@ function renameDir(){
   };
   dialogButtons[t('Cancel')] = function(){$('#pnlDirName').dialog('close');};
 
-  $('#pnlDirName').dialog({title:t('T_RenameDir'),modal:true,buttons:dialogButtons});
-  RoxyUtils.SelectText('txtDirName', 0, new String(f.name).length);
+    $('#pnlDirName').dialog({ title: t('T_RenameDir'), modal: true, buttons: dialogButtons });
+    RoxyUtils.SelectText('txtDirName', String(0, f.name.length));
 }
 function renameFile(){
   var f = getSelectedFile();
