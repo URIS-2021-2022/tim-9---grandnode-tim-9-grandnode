@@ -269,8 +269,7 @@ namespace Grand.Web.Features.Handlers.Products
                         #endregion
                     }
                     break;
-                case ProductType.SimpleProduct:
-                case ProductType.Reservation:
+                
                 default:
                     {
                         #region Simple product

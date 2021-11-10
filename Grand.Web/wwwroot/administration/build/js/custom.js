@@ -1821,7 +1821,7 @@ function init_DataTables() {
         }
     };
 
-    TableManageButtons = function () {
+    var TableManageButtons = function () {
         "use strict";
         return {
             init: function () {

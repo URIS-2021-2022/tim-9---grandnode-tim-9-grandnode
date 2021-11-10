@@ -63,7 +63,6 @@ function autocompleteVue(e) {
                 }
             })
         } else {
-            var searchResult = document.getElementById('adv_search');
             if (searchResult) {
                 searchResult.style.display = 'none';
             }

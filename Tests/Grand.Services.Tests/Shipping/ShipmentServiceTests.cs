@@ -44,6 +44,7 @@ namespace Grand.Services.Shipping.Tests
         private ICountryService _countryService;
         private IStateProvinceService _stateProvinceService;
         private ICurrencyService _currencyService;
+        private IShippingService _shippingService;
 
         [TestInitialize()]
         public void TestInitialize()
@@ -76,6 +77,8 @@ namespace Grand.Services.Shipping.Tests
             _stateProvinceService = new Mock<IStateProvinceService>().Object;
             _currencyService = new Mock<ICurrencyService>().Object;
             _productService = new Mock<IProductService>().Object;
+            _shippingService = new Mock<IShippingService>().Object;
+            
 
             
 
@@ -112,9 +115,9 @@ namespace Grand.Services.Shipping.Tests
         //[TestMethod()]
         //public async Task Can_load_active_shippingRateComputationMethods()
         //{
-        //    var srcm = await _shippingService.LoadActiveShippingRateComputationMethods();
-        //    Assert.IsNotNull(srcm);
-        //    Assert.IsTrue(srcm.Count > 0);
+         //   var srcm = await _shippingService.LoadActiveShippingRateComputationMethods();
+         //   Assert.IsNotNull(srcm);
+          //  Assert.IsTrue(srcm.Count > 0);
         //}
     }
 }

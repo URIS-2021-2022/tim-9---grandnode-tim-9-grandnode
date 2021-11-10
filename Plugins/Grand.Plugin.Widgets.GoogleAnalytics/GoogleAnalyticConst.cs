@@ -2,6 +2,8 @@
 {
     public static class GoogleAnalyticConst
     {
-        public const string ConsentCookieSystemName = "GoogleAnalytics";
+        private static readonly string consentCookieSystemName = "GoogleAnalytics";
+
+        public static string ConsentCookieSystemName=>consentCookieSystemName;
     }
 }

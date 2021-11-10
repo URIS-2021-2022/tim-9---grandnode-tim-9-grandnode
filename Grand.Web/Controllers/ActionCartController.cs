@@ -398,13 +398,11 @@ namespace Grand.Web.Controllers
             string duration = "";
             if (product.ProductType == ProductType.Reservation)
             {
-                foreach (string formKey in form.Keys)
+                foreach (string formKey in form.Keys.Where(y => y.Contains("Reservation")))
                 {
-                    if (formKey.Contains("Reservation"))
-                    {
-                        reservationId = form["Reservation"].ToString();
-                        break;
-                    }
+                    reservationId = form["Reservation"].ToString();
+                    break;
+                   
                 }
 
                 if (product.IntervalUnitType == IntervalUnit.Hour || product.IntervalUnitType == IntervalUnit.Minute)
