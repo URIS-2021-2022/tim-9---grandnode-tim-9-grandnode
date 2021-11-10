@@ -104,8 +104,6 @@ namespace Grand.Core.Caching
             //dispose
             _resetCacheToken.Dispose();
 
-            _resetCacheToken = new CancellationTokenSource();
-
             return Task.CompletedTask;
         }
 

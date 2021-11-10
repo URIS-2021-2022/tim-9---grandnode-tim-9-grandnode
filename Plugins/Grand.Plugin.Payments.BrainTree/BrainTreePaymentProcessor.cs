@@ -27,7 +27,6 @@ namespace Grand.Plugin.Payments.BrainTree
         private readonly ICustomerService _customerService;
         private readonly ISettingService _settingService;
         private readonly IOrderTotalCalculationService _orderTotalCalculationService;
-        private readonly IPaymentService _paymentService;
         private readonly BrainTreePaymentSettings _brainTreePaymentSettings;
         private readonly ILocalizationService _localizationService;
         private readonly IWebHelper _webHelper;
@@ -40,7 +39,6 @@ namespace Grand.Plugin.Payments.BrainTree
         public BrainTreePaymentProcessor(ICustomerService customerService,
             ISettingService settingService,
             IOrderTotalCalculationService orderTotalCalculationService,
-            IPaymentService paymentService,
             BrainTreePaymentSettings brainTreePaymentSettings,
             ILocalizationService localizationService,
             IWebHelper webHelper,
@@ -49,7 +47,6 @@ namespace Grand.Plugin.Payments.BrainTree
             _customerService = customerService;
             _settingService = settingService;
             _orderTotalCalculationService = orderTotalCalculationService;
-            _paymentService = paymentService;
             _brainTreePaymentSettings = brainTreePaymentSettings;
             _localizationService = localizationService;
             _webHelper = webHelper;

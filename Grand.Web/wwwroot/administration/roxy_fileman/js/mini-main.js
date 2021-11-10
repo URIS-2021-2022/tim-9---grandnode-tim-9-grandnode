@@ -147,7 +147,13 @@ var FileTypes = new Array();
 FileTypes['image'] = new Array('jpg', 'jpeg', 'png', 'gif');
 FileTypes['media'] = new Array('avi', 'flv', 'swf', 'wmv', 'mp3', 'wma', 'mpg','mpeg');
 FileTypes['document'] = new Array('doc', 'docx', 'txt', 'rtf', 'pdf', 'xls', 'mdb','html','htm','db');
-function RoxyUtils(){}
+function RoxyUtils() {
+    //There are several reasons for a method not to have a method body:
+
+    //It is an unintentional omission, and should be fixed.
+    //It is not yet, or never will be, supported. In this case a NotSupportedException should be thrown.
+    //The method is an intentionally - blank override. In this case a nested comment should explain the reason for the blank override.
+}
 RoxyUtils.FixPath = function(path){
   if(!path)
     return '';

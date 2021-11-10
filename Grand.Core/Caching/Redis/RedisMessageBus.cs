@@ -22,7 +22,6 @@ namespace Grand.Core.Caching.Redis
             _subscriber = subscriber;
             _serviceProvider = serviceProvider;
             _grandConfig = grandConfig;
-            SubscribeAsync();
         }
 
         public async Task PublishAsync<TMessage>(TMessage msg) where TMessage : IMessageEvent

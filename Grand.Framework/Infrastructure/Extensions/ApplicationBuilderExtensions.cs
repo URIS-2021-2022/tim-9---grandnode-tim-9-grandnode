@@ -101,7 +101,6 @@ namespace Grand.Framework.Infrastructure.Extensions
                     finally
                     {
                         //rethrow the exception to show the error page
-                        throw exception;
                     }
                 });
             });

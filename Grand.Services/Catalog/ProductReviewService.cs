@@ -43,7 +43,7 @@ namespace Grand.Services.Catalog
         /// <param name="toUtc">Item item creation to; null to load all records</param>
         /// <param name="message">Search title or review text; null to load all records</param>
         /// <returns>Reviews</returns>
-        public virtual async Task<IPagedList<ProductReview>> GetAllProductReviews(string customerId, bool? approved,
+        public virtual async Task<IPagedList<ProductReview>> GetAllProductReviews(string customerId, bool? approved = false,
             DateTime? fromUtc = null, DateTime? toUtc = null,
             string message = null, string storeId = "", string productId = "", int pageIndex = 0, int pageSize = int.MaxValue)
         {
