@@ -67,13 +67,10 @@ namespace Grand.Core.TypeConverters.Converter
                     {
                         object dictionaryKey = typeConverterKey.ConvertFromInvariantString(keyValueStr[0]);
                         object dictionaryValue = typeConverterKey.ConvertFromInvariantString(keyValueStr[1]);
-                        if (dictionaryKey != null && dictionaryValue != null)
+                        if (dictionaryKey != null && dictionaryValue != null && !result.ContainsKey((K)dictionaryKey))
                         {
-                            if (!result.ContainsKey((K)dictionaryKey))
-                            {
-                                var itemvalue = Convert.ChangeType(dictionaryValue, typeof(V));
-                                result.Add((K)dictionaryKey, (V)itemvalue);
-                            }
+                            var itemvalue = Convert.ChangeType(dictionaryValue, typeof(V));
+                            result.Add((K)dictionaryKey, (V)itemvalue);
                         }
                     }
                 }
