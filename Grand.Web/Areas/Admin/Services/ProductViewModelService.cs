@@ -1248,7 +1248,7 @@ namespace Grand.Web.Areas.Admin.Services
                 }
             }
 
-            if (product.ProductCategories.Where(x => x.CategoryId == model.CategoryId).Count() == 0)
+            if (product?.ProductCategories.Where(x => x.CategoryId == model.CategoryId).Count() == 0)
             {
                 var productCategory = new ProductCategory {
                     ProductId = model.ProductId,
@@ -1338,7 +1338,7 @@ namespace Grand.Web.Areas.Admin.Services
                 }
             }
 
-            var existingProductmanufacturers = product.ProductManufacturers;
+            var existingProductmanufacturers = product?.ProductManufacturers;
             if (product.ProductManufacturers.Where(x => x.ManufacturerId == manufacturerId).Count() == 0)
             {
                 var productManufacturer = new ProductManufacturer {
