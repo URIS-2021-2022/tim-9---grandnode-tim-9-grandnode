@@ -119,7 +119,7 @@ namespace Grand.Services.Customers.Tests
                 StartDateTimeUtc = DateTime.UtcNow,
                 EndDateTimeUtc = DateTime.UtcNow.AddMonths(1),
                 Name = "Test action",
-                ReactionTypeId = (int)CustomerReactionTypeEnum.AssignToCustomerTag,
+                ReactionTypeId = (int)CustomerReactionType.AssignToCustomerTag,
                 Condition = CustomerActionCondition.OneOfThem,
             };
             await _customerActionService.InsertCustomerAction(customerAction);
