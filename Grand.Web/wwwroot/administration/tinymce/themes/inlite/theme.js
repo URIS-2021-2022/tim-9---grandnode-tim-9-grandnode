@@ -4644,7 +4644,7 @@ var inlite = (function () {
   var $_8h4fxa19tjm0og73b = { getUiContainerDelta: getUiContainerDelta$1 };
 
   var isDomainLike = function (href) {
-    return /^www\.|\.(com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)$/i.test(href.trim());
+    return /^www\.|\.(?:com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)$/i.test(href.trim());
   };
   var isAbsolute = function (href) {
     return /^https?:\/\//.test(href.trim());
