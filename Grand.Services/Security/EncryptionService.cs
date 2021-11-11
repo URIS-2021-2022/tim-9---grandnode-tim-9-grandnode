@@ -88,10 +88,10 @@ namespace Grand.Services.Security
                 return plainText;
             if (string.IsNullOrEmpty(encryptionPrivateKey))
                 encryptionPrivateKey = _securitySettings.EncryptionKey;
-            var AES = new AesCryptoServiceProvider();
-            AES.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
-            AES.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
-            byte[] encryptedBinary = EncryptTextToMemory(plainText, AES.Key, AES.IV);
+            var tDESalg = TripleDES.Create();
+            tDESalg.Key = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(0, 24));
+            tDESalg.IV = new ASCIIEncoding().GetBytes(encryptionPrivateKey.Substring(16, 8));
+            byte[] encryptedBinary = EncryptTextToMemory(plainText, tDESalg.Key, tDESalg.IV);
             return Convert.ToBase64String(encryptedBinary);
         }
 
