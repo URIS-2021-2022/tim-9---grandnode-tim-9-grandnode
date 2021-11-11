@@ -128,7 +128,8 @@ var a, l;
                         case "on":
                         case "nativeOn":
                             e[a] || (e[a] = {});
-                            for (var i = 0, r = Object.keys(arguments[h][a] || {}); i < r.length; i++) (l = r[i]), e[a][l] ? (e[a][l] = [].concat(e[a][l], arguments[h][a][l])) : (e[a][l] = arguments[h][a][l]);
+                            e[a][l] = [].concat(e[a][l]);
+                            for (var i = 0, r = Object.keys(arguments[h][a] || {}); i < r.length; i++) (l = r[i]), e[a][l] ? (e[a][l], arguments[h][a][l]) : (e[a][l] = arguments[h][a][l]);
                             break;
                         case "attrs":
                         case "props":
