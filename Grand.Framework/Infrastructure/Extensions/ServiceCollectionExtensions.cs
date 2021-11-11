@@ -350,7 +350,7 @@ namespace Grand.Framework.Infrastructure.Extensions
                     var settingService = x.GetRequiredService<ISettingService>();
                     var storeContext = x.GetRequiredService<IStoreContext>();
                     if (storeContext.CurrentStore == null)
-                        storeId = ""; //storeContext.SetCurrentStore().Result.Id;
+                        storeId = ""; 
                     else
                         storeId = storeContext.CurrentStore.Id;
 
