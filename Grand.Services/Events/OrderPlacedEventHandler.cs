@@ -19,7 +19,7 @@ namespace Grand.Services.Events
         public async Task Handle(OrderPlacedEvent notification, CancellationToken cancellationToken)
         {
             //cutomer action - add order
-            await _customerActionEventService.AddOrder(notification.Order, CustomerActionTypeEnum.AddOrder);
+            await _customerActionEventService.AddOrder(notification.Order, CustomerActionTypes.AddOrder);
         }
     }
 }
