@@ -220,7 +220,8 @@ namespace Grand.Core.Plugins
         /// Mark plugin as uninstalled
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
-        public static async Task MarkPluginAsUninstalled(string systemName)
+        /// 
+      /*  public static async Task MarkPluginAsUninstalled(string systemName)
         {
             if (string.IsNullOrEmpty(systemName))
                 throw new ArgumentNullException("systemName");
@@ -239,7 +240,32 @@ namespace Grand.Core.Plugins
             if (alreadyMarkedAsInstalled)
                 installedPluginSystemNames.Remove(systemName);
             await PluginFileParser.SaveInstalledPluginsFile(installedPluginSystemNames, filePath);
+        }*/
+
+         //---------------------------------------------------------------------------------------------------------------------
+        public static Task MarkPluginAsUninstalled(string systemName)
+        {
+             if (string.IsNullOrEmpty(systemName))
+                throw new ArgumentNullException("systemName");
+
+               var filePath = CommonHelper.MapPath(InstalledPluginsFilePath);
+            if (!File.Exists(filePath))
+                using (File.Create(filePath))
+                {
+                    //we use 'using' to close the file after it's created
+                }
         }
+
+        private static async Task MarkPluginAsUninstalledAsync(string systemName)
+        {
+               var installedPluginSystemNames = PluginFileParser.ParseInstalledPluginsFile(GetInstalledPluginsFilePath());
+            var alreadyMarkedAsInstalled = installedPluginSystemNames
+                                .FirstOrDefault(x => x.Equals(systemName, StringComparison.OrdinalIgnoreCase)) != null;
+            if (alreadyMarkedAsInstalled)
+                installedPluginSystemNames.Remove(systemName);
+            await PluginFileParser.SaveInstalledPluginsFile(installedPluginSystemNames, filePath);
+        }
+        //---------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
         /// Mark plugin as uninstalled
