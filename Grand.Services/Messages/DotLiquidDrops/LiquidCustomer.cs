@@ -109,7 +109,7 @@ namespace Grand.Services.Messages.DotLiquidDrops
 
         public string AccountActivationURL
         {
-            get { return string.Format("{0}customer/activation?token={1}&email={2}", (_store.SslEnabled ? _store.SecureUrl : _store.Url), _customer.GetAttributeFromEntity<string>(SystemCustomerAttributeNames.AccountActivationToken), WebUtility.UrlEncode(_customer.Email)); ; }
+            get { return string.Format("{0}customer/activation?token={1}&email={2}", (_store.SslEnabled ? _store.SecureUrl : _store.Url), _customer.GetAttributeFromEntity<string>(SystemCustomerAttributeNames.AccountActivationToken), WebUtility.UrlEncode(_customer.Email)); }
         }
 
         public string WishlistURLForCustomer
