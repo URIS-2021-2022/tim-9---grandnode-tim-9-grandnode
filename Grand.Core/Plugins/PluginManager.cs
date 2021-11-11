@@ -145,9 +145,10 @@ namespace Grand.Core.Plugins
 
                             //init plugin type (only one plugin per assembly is allowed)
                             foreach (var t in pluginDescriptor.ReferencedAssembly.GetTypes())
+
                                 if (typeof(IPlugin).IsAssignableFrom(t))
-                                    if (!t.GetTypeInfo().IsInterface)
-                                        if (t.GetTypeInfo().IsClass && !t.GetTypeInfo().IsAbstract)
+                                    if (!t.GetTypeInfo().IsInterface && t.GetTypeInfo().IsClass && !t.GetTypeInfo().IsAbstract )
+                                     //refactoring 
                                         {
                                             pluginDescriptor.PluginType = t;
                                             break;
