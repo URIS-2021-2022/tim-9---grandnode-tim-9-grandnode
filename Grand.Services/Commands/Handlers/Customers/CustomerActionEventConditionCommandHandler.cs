@@ -65,22 +65,22 @@ namespace Grand.Services.Commands.Handlers.Customers
                 {
                     var product = await _productService.GetProductById(productId);
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Category)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Category)
                     {
                         cond = ConditionCategory(item, product.ProductCategories);
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Manufacturer)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Manufacturer)
                     {
                         cond = ConditionManufacturer(item, product.ProductManufacturers);
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Product)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Product)
                     {
                         cond = ConditionProducts(item, product.Id);
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.ProductAttribute)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.ProductAttribute)
                     {
                         if (customAttributes !=null && customAttributes.Any())
                         {
@@ -88,12 +88,12 @@ namespace Grand.Services.Commands.Handlers.Customers
                         }
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.ProductSpecification)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.ProductSpecification)
                     {
                         cond = ConditionSpecificationAttribute(item, product.ProductSpecificationAttributes);
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Vendor)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Vendor)
                     {
                         cond = ConditionVendors(item, product.VendorId);
                     }
@@ -105,7 +105,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                 if (action.ActionTypeId == customerActionTypes.FirstOrDefault(x => x.SystemKeyword == "Viewed").Id)
                 {
                     cond = false;
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Category)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Category)
                     {
                         var _actLogType = (from a in _activityLogTypeRepository.Table
                                            where a.SystemKeyword == "PublicStore.ViewCategory"
@@ -122,7 +122,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                         }
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Manufacturer)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Manufacturer)
                     {
                         cond = false;
                         var _actLogType = (from a in _activityLogTypeRepository.Table
@@ -140,7 +140,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                         }
                     }
 
-                    if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Product)
+                    if (item.CustomerActionConditionType == CustomerActionConditionType.Product)
                     {
                         cond = false;
                         var _actLogType = (from a in _activityLogTypeRepository.Table
@@ -162,45 +162,45 @@ namespace Grand.Services.Commands.Handlers.Customers
 
                 var customer = await _customerService.GetCustomerById(customerId);
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.CustomerRole)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.CustomerRole)
                 {
                     cond = ConditionCustomerRole(item, customer);
                 }
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.CustomerTag)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.CustomerTag)
                 {
                     cond = ConditionCustomerTag(item, customer);
                 }
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.CustomerRegisterField)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.CustomerRegisterField)
                 {
                     cond = await ConditionCustomerRegister(item, customer);
                 }
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.CustomCustomerAttribute)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.CustomCustomerAttribute)
                 {
                     cond = await ConditionCustomerAttribute(item, customer);
                 }
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.UrlCurrent)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.UrlCurrent)
                 {
                     cond = item.UrlCurrent.Select(x => x.Name).Contains(currentUrl);
                 }
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.UrlReferrer)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.UrlReferrer)
                 {
                     cond = item.UrlReferrer.Select(x => x.Name).Contains(previousUrl);
                 }
 
-                if (item.CustomerActionConditionType == CustomerActionConditionTypeEnum.Store)
+                if (item.CustomerActionConditionType == CustomerActionConditionType.Store)
                 {
                     var storeContext = _serviceProvider.GetRequiredService<IStoreContext>();
                     cond = ConditionStores(item, storeContext.CurrentStore.Id);
                 }
 
-                if (action.Condition == CustomerActionConditionEnum.OneOfThem && cond)
+                if (action.Condition == CustomerActionCondition.OneOfThem && cond)
                     return true;
-                if (action.Condition == CustomerActionConditionEnum.AllOfThem && !cond)
+                if (action.Condition == CustomerActionCondition.AllOfThem && !cond)
                     return false;
             }
 
@@ -209,11 +209,11 @@ namespace Grand.Services.Commands.Handlers.Customers
         protected bool ConditionCategory(CustomerAction.ActionCondition condition, ICollection<ProductCategory> categorties)
         {
             bool cond = true;
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = categorties.Select(x => x.CategoryId).ContainsAll(condition.Categories);
             }
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 cond = categorties.Select(x => x.CategoryId).ContainsAny(condition.Categories);
             }
@@ -223,11 +223,11 @@ namespace Grand.Services.Commands.Handlers.Customers
         protected bool ConditionCategory(CustomerAction.ActionCondition condition, ICollection<string> categorties)
         {
             bool cond = true;
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = categorties.ContainsAll(condition.Categories);
             }
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 cond = categorties.ContainsAny(condition.Categories);
             }
@@ -238,11 +238,11 @@ namespace Grand.Services.Commands.Handlers.Customers
         {
             bool cond = true;
 
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = manufacturers.Select(x => x.ManufacturerId).ContainsAll(condition.Manufacturers);
             }
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 cond = manufacturers.Select(x => x.ManufacturerId).ContainsAny(condition.Manufacturers);
             }
@@ -253,11 +253,11 @@ namespace Grand.Services.Commands.Handlers.Customers
         {
             bool cond = true;
 
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = manufacturers.ContainsAll(condition.Manufacturers);
             }
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 cond = manufacturers.ContainsAny(condition.Manufacturers);
             }
@@ -275,11 +275,11 @@ namespace Grand.Services.Commands.Handlers.Customers
         protected bool ConditionProducts(CustomerAction.ActionCondition condition, ICollection<string> products)
         {
             bool cond = true;
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = products.ContainsAll(condition.Products);
             }
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 cond = products.ContainsAny(condition.Products);
             }
@@ -290,7 +290,7 @@ namespace Grand.Services.Commands.Handlers.Customers
         {
             bool cond = false;
             var productAttributeParser = _serviceProvider.GetRequiredService<IProductAttributeParser>();
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 var attributes = productAttributeParser.ParseProductAttributeMappings(product, customAttributes);
                 foreach (var attr in attributes)
@@ -307,7 +307,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                     }
                 }
             }
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = true;
                 foreach (var itemPA in condition.ProductAttribute)
@@ -351,7 +351,7 @@ namespace Grand.Services.Commands.Handlers.Customers
         {
             bool cond = false;
 
-            if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+            if (condition.Condition == CustomerActionCondition.AllOfThem)
             {
                 cond = true;
                 foreach (var spec in condition.ProductSpecifications)
@@ -360,7 +360,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                         cond = false;
                 }
             }
-            if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+            if (condition.Condition == CustomerActionCondition.OneOfThem)
             {
                 foreach (var spec in productspecificationattribute)
                 {
@@ -381,11 +381,11 @@ namespace Grand.Services.Commands.Handlers.Customers
             if (customer != null)
             {
                 var customerRoles = customer.CustomerRoles;
-                if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+                if (condition.Condition == CustomerActionCondition.AllOfThem)
                 {
                     cond = customerRoles.Select(x => x.Id).ContainsAll(condition.CustomerRoles);
                 }
-                if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+                if (condition.Condition == CustomerActionCondition.OneOfThem)
                 {
                     cond = customerRoles.Select(x => x.Id).ContainsAny(condition.CustomerRoles);
                 }
@@ -398,11 +398,11 @@ namespace Grand.Services.Commands.Handlers.Customers
             if (customer != null)
             {
                 var customerTags = customer.CustomerTags;
-                if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+                if (condition.Condition == CustomerActionCondition.AllOfThem)
                 {
                     cond = customerTags.Select(x => x).ContainsAll(condition.CustomerTags);
                 }
-                if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+                if (condition.Condition == CustomerActionCondition.OneOfThem)
                 {
                     cond = customerTags.Select(x => x).ContainsAny(condition.CustomerTags);
                 }
@@ -415,7 +415,7 @@ namespace Grand.Services.Commands.Handlers.Customers
             if (customer != null)
             {
                 var _genericAttributes = customer.GenericAttributes;
-                if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+                if (condition.Condition == CustomerActionCondition.AllOfThem)
                 {
                     cond = true;
                     foreach (var item in condition.CustomerRegistration)
@@ -424,7 +424,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                             cond = false;
                     }
                 }
-                if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+                if (condition.Condition == CustomerActionCondition.OneOfThem)
                 {
                     foreach (var item in condition.CustomerRegistration)
                     {
@@ -442,7 +442,7 @@ namespace Grand.Services.Commands.Handlers.Customers
             {
                 var customerAttributeParser = _serviceProvider.GetRequiredService<ICustomerAttributeParser>();
 
-                if (condition.Condition == CustomerActionConditionEnum.AllOfThem)
+                if (condition.Condition == CustomerActionCondition.AllOfThem)
                 {
                     if (customer.Attributes.Any())
                     {
@@ -461,7 +461,7 @@ namespace Grand.Services.Commands.Handlers.Customers
                         }
                     }
                 }
-                if (condition.Condition == CustomerActionConditionEnum.OneOfThem)
+                if (condition.Condition == CustomerActionCondition.OneOfThem)
                 {
                     if (customer.Attributes.Any())
                     {
