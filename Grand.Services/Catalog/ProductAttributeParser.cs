@@ -68,7 +68,7 @@ namespace Grand.Services.Catalog
                 {
                     if (!string.IsNullOrEmpty(valueStr))
                     {
-                        if (attribute.ProductAttributeValues.Where(x => x.Id == valueStr).Count() > 0)
+                        if (attribute.ProductAttributeValues.Where(x => x.Id == valueStr).Any())
                         {
                             var value = attribute.ProductAttributeValues.Where(x => x.Id == valueStr).FirstOrDefault();
                             if (value != null)
