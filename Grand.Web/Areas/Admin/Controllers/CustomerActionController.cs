@@ -272,7 +272,7 @@ namespace Grand.Web.Areas.Admin.Controllers
                 model.CustomerActionConditionType.Add(new SelectListItem()
                 {
                     Value = item.ToString(),
-                    Text = ((CustomerActionConditionTypeEnum)item).ToString()
+                    Text = ((CustomerActionConditionType)item).ToString()
                 });
             }
 
