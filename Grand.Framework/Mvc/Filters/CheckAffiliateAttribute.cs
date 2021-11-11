@@ -45,7 +45,7 @@ namespace Grand.Framework.Mvc.Filters
             #endregion
 
             #region Ctor
-
+            /*
             public CheckAffiliateFilter(IAffiliateService affiliateService, 
                 ICustomerService customerService,
                 IWorkContext workContext)
@@ -54,7 +54,7 @@ namespace Grand.Framework.Mvc.Filters
                 _customerService = customerService;
                 _workContext = workContext;
             }
-
+            */
             #endregion
 
             #region Utilities
