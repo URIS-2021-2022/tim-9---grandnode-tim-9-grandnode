@@ -6499,7 +6499,7 @@
         var reader = new FileReader;
         reader.onload = operation(cm, function () {
           var content = reader.result;
-          if (/[\x00-\x08\x0e-\x1f]{2}/.test(content)) { content = ""; }
+          if (/{2}/.test(content)) { content = ""; }
           text[i] = content;
           if (++read == n) {
             pos = clipPos(cm.doc, pos);
