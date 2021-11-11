@@ -87,6 +87,10 @@ namespace Grand.Domain.Data
         {
             return _collection.Find(e => e.Id == id).FirstOrDefaultAsync();
         }
+
+
+        //INSERT ENTITY 
+
         /// <summary>
         /// Insert entity
         /// </summary>
@@ -95,6 +99,15 @@ namespace Grand.Domain.Data
         {
             _collection.InsertOne(entity);
             return entity;
+        }
+
+         /// <summary>
+        /// Insert entities
+        /// </summary>
+        /// <param name="entities">Entities</param>
+        public virtual void Insert(IEnumerable<T> entities)
+        {
+            _collection.InsertMany(entities);
         }
 
         /// <summary>
@@ -107,25 +120,7 @@ namespace Grand.Domain.Data
             return entity;
         }
 
-        /// <summary>
-        /// Async Insert many entities
-        /// </summary>
-        /// <param name="entities">Entities</param>
-        public virtual async Task InsertManyAsync(IEnumerable<T> entities)
-        {
-            await _collection.InsertManyAsync(entities);
-        }
-
-        /// <summary>
-        /// Insert entities
-        /// </summary>
-        /// <param name="entities">Entities</param>
-        public virtual void Insert(IEnumerable<T> entities)
-        {
-            _collection.InsertMany(entities);
-        }
-
-        /// <summary>
+          /// <summary>
         /// Async Insert entities
         /// </summary>
         /// <param name="entities">Entities</param>
@@ -135,6 +130,18 @@ namespace Grand.Domain.Data
             return entities;
         }
 
+        /// <summary>
+        /// Async Insert many entities
+        /// </summary>
+        /// <param name="entities">Entities</param>
+        public virtual async Task InsertManyAsync(IEnumerable<T> entities)
+        {
+            await _collection.InsertManyAsync(entities);
+        }
+
+       
+
+     //UPDATE 
 
         /// <summary>
         /// Update entity
