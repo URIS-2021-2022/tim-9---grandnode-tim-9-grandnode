@@ -172,6 +172,7 @@ namespace Grand.Services.Customers
             var liquidObject = new LiquidObject();
 
           if(liquidObject == null) {  throw new ArgumentNullException("liquidObject obj is null"); }
+          //s2259 null exception
 
             await _messageTokenProvider.AddStoreTokens(liquidObject, store, language, emailAccount);
             await _messageTokenProvider.AddCustomerTokens(liquidObject, customer, store, language);
