@@ -126,7 +126,7 @@ namespace Grand.Web.Controllers
                 return InvokeHttp404();
 
             //availability dates
-            if (!product.IsAvailable() && !(product.ProductType == ProductType.Auction))
+            if (!product.IsAvailable() && product.ProductType != ProductType.Auction)
                 return InvokeHttp404();
 
             //visible individually?
