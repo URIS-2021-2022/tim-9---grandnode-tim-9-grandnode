@@ -32,8 +32,8 @@ namespace Grand.Domain.Customers
 
         public CustomerActionConditionEnum Condition
         {
-            get { return (CustomerActionConditionEnum)Condition; }
-            set { Condition = (int)value; }
+            get { return (CustomerActionConditionEnum)ConditionId; }
+            set { ConditionId = (int)value; }
         }
 
 
@@ -44,8 +44,8 @@ namespace Grand.Domain.Customers
 
         public CustomerReactionTypeEnum ReactionType
         {
-            get { return (CustomerReactionTypeEnum)ReactionType; }
-            set { ReactionType = (int)value; }
+            get { return (CustomerReactionTypeEnum)ReactionTypeId; }
+            set { ReactionTypeId = (int)value; }
         }
 
         public string BannerId { get; set; }
