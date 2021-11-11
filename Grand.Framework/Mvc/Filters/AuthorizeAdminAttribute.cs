@@ -20,21 +20,16 @@ namespace Grand.Framework.Mvc.Filters
         /// Create instance of the filter attribute
         /// </summary>
         /// <param name="ignore">Whether to ignore the execution of filter actions</param>
-        /// 
-        /*
-        public AuthorizeAdminAttribute(bool ignore = false) : base(typeof(AuthorizeAdminFilter))
+        
+      /*  public AuthorizeAdminAttribute(bool ignore = false) : base(typeof(AuthorizeAdminFilter))
         {
             _ignoreFilter = ignore;
             Arguments = new object[] { ignore };
         }
-*/  
-        public AuthorizeAdminAttribute () 
-        {
-            
-        }
-            
-           
-            public bool IgnoreFilter => _ignoreFilter;
+
+        */
+
+        public bool IgnoreFilter => _ignoreFilter;
 
         #region Nested filter
 
