@@ -254,6 +254,8 @@ namespace Grand.Core.Plugins
                 {
                     //we use 'using' to close the file after it's created
                 }
+
+            return filePath.MarkPluginAsUninstaled(filePath);
         }
 
         private static async Task MarkPluginAsUninstalledAsync(string systemName)
