@@ -15,6 +15,7 @@ namespace Grand.Api.Jwt
         private bool useaudience;
         private string audience = "";
         private readonly Dictionary<string, string> claims = new Dictionary<string, string>();
+        //s2933 otisla sa prethodnom ispravkom i tim commitom 
         private int expiryInMinutes = 5;
 
         private void EnsureArguments()
