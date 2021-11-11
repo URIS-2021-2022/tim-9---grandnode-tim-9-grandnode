@@ -76,7 +76,7 @@ namespace Grand.Framework.Infrastructure
                 serviceCollection.AddTransient<BaseDataProviderManager>(c => new MongoDBDataProviderManager(c.GetRequiredService<DataSettings>()));
                 serviceCollection.AddTransient<IDataProvider>(x => x.GetRequiredService<BaseDataProviderManager>().LoadDataProvider());
             }
-            if (dataProviderSettings != null && dataProviderSettings.IsValid())
+            if (dataProviderSettings.IsValid())
             {
                 var connectionString = dataProviderSettings.DataConnectionString;
                 var mongourl = new MongoUrl(connectionString);
