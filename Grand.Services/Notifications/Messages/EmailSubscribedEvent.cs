@@ -2,7 +2,7 @@
 
 namespace Grand.Services.Notifications.Messages
 {
-    public class EmailSubscribedEvent : INotification
+    public class EmailSubscribedEvent : INotification , System.IEquatable<EmailSubscribedEvent>
     {
         private readonly string _email;
 
