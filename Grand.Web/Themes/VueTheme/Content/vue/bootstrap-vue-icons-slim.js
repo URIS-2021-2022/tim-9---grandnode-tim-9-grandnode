@@ -272,10 +272,11 @@ var a, l;
                     l = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                 return o(o({}, l), {}, { install: W(a) });
             },
+            /*
             N = function (a) {
                 var l = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                 for (var e in l) e && l[e] && a.use(l[e]);
-            },
+            },*/ 
             J = function (a, l, e) {
                 a && l && e && a.component(l, e);
             },
