@@ -363,7 +363,7 @@ var Shipping = {
                 document.querySelector('#back-' + response.data.goto_section).setAttribute('onclick', 'document.querySelector("#button-shipping").click()');
             }
         }).catch(function (error) {
-            error.axiosFailure;
+            error.axiosFailure();
         }).then(function () {
             this.Billing.resetLoadWaiting();
         });
