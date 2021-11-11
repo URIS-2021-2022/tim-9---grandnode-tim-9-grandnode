@@ -113,7 +113,7 @@ namespace Grand.Core.Plugins
 
                         //some validation
                         if (string.IsNullOrWhiteSpace(pluginDescriptor.SystemName))
-                            throw new ArgumentNullException(nameof(pluginDescriptor.SystemName); 
+                            throw new ArgumentNullException(nameof(pluginDescriptor.SystemName)); 
                            // throw new Exception(string.Format("A plugin '{0}' has no system name. Try assigning the plugin a unique name and recompiling.", pluginDescriptor.SystemName));
                         if (referencedPlugins.Contains(pluginDescriptor))
                             throw new Exception(string.Format("A plugin with '{0}' system name is already defined", pluginDescriptor.SystemName));
