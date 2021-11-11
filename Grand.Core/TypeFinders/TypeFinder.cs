@@ -44,23 +44,26 @@ namespace Grand.Core.TypeFinders
 
                     foreach (var t in types)
                     {
-                        if (!assignTypeFrom.IsAssignableFrom(t) && (!assignTypeFrom.IsGenericTypeDefinition || !DoesTypeImplementOpenGeneric(t, assignTypeFrom)))
+                        if (!assignTypeFrom.IsAssignableFrom(t) && (!assignTypeFrom.IsGenericTypeDefinition || !DoesTypeImplementOpenGeneric(t, assignTypeFrom)) && t.IsInterface)
                             continue;
 
-                        if (t.IsInterface)
+                       
+                        /*
+                         * 
+                         *  if (t.IsInterface)
                             continue;
-
-                        if (onlyConcreteClasses)
+                        if (onlyConcreteClasses && t.IsClass && !t.IsAbstract )
+                        //druga dva uslova si prebacila u jedan if, bili su zasebno 
                         {
-                            if (t.IsClass && !t.IsAbstract)
-                            {
                                 result.Add(t);
-                            }
+                          
                         }
                         else
                         {
                             result.Add(t);
-                        }
+                        }*/ 
+
+                        result.Add(t);
                     }
                 }
             }
