@@ -6366,10 +6366,8 @@ var mobile = (function () {
         resolve(value);
       });
     };
-    Promise.reject = function (value) {
-      return new Promise(function (resolve, reject) {
-        reject(value);
-      });
+      Promise.reject = function (value) {
+          return new Promise.reject(value); 
     };
     Promise.race = function (values) {
       return new Promise(function (resolve, reject) {
