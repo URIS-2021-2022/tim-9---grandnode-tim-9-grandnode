@@ -24,10 +24,10 @@ namespace Grand.Api.Jwt
                 throw new ArgumentNullException("Security Key");
 
             if (this.useissuer && string.IsNullOrEmpty(this.issuer))
-                throw new ArgumentNullException("Issuer");
+                throw new ArgumentNullException(nameof(this.issuer));
 
             if (this.useaudience && string.IsNullOrEmpty(this.audience))
-                throw new ArgumentNullException("Audience");
+                throw new ArgumentNullException(nameof(this.audience));
         }
 
         public JwtTokenBuilder AddSecurityKey(SecurityKey securityKey)
