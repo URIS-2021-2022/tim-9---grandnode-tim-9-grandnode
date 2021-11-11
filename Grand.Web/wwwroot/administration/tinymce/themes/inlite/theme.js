@@ -4656,7 +4656,9 @@ var inlite = (function () {
 
   var focusFirstTextBox = function (form) {
     form.find('textbox').eq(0).each(function (ctrl) {
-      ctrl.focus();
+        ctrl.focus();
+
+
     });
   };
   var createForm = function (name, spec) {
