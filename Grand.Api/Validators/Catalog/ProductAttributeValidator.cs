@@ -27,7 +27,7 @@ namespace Grand.Api.Validators.Catalog
             RuleFor(x => x).Must((x, context) =>
             {
                 //foreach (var item in x.PredefinedProductAttributeValues)
-                var item = x.PredefinedPRoductAtributeValues;
+                var item = x.PredefinedProductAttributeValues;
                 if(item!=null)
                 { 
                     return true;
