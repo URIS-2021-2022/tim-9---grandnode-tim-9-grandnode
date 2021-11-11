@@ -221,7 +221,7 @@ namespace Grand.Core.Plugins
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
         /// 
-      /*  public static async Task MarkPluginAsUninstalled(string systemName)
+       public static async Task MarkPluginAsUninstalled(string systemName)
         {
             if (string.IsNullOrEmpty(systemName))
                 throw new ArgumentNullException("systemName");
@@ -240,10 +240,10 @@ namespace Grand.Core.Plugins
             if (alreadyMarkedAsInstalled)
                 installedPluginSystemNames.Remove(systemName);
             await PluginFileParser.SaveInstalledPluginsFile(installedPluginSystemNames, filePath);
-        }*/
+        }
 
          //---------------------------------------------------------------------------------------------------------------------
-        public static Task MarkPluginAsUninstalled(string systemName)
+      /*  public static Task MarkPluginAsUninstalled(string systemName)
         {
              if (string.IsNullOrEmpty(systemName))
                 throw new ArgumentNullException("systemName");
@@ -267,7 +267,7 @@ namespace Grand.Core.Plugins
                 installedPluginSystemNames.Remove(systemName);
             await PluginFileParser.SaveInstalledPluginsFile(installedPluginSystemNames, filePath);
         }
-        //---------------------------------------------------------------------------------------------------------------------
+       */ //---------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
         /// Mark plugin as uninstalled
