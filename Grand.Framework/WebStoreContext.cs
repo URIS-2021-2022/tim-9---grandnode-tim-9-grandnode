@@ -61,7 +61,7 @@ namespace Grand.Framework
 
             var allStores = await _storeService.GetAllStores();
             var stores = allStores.Where(s => s.ContainsHostValue(host));
-            if (stores.Count() == 0)
+            if (stores.Any())
             {
                 _cachedStore = allStores.FirstOrDefault();
             }
