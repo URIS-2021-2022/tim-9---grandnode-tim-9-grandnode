@@ -26,12 +26,16 @@ namespace Grand.Api.Validators.Catalog
             }).WithMessage(localizationService.GetResource("Api.Catalog.ProductAttribute.Fields.Id.NotExists"));
             RuleFor(x => x).Must((x, context) =>
             {
-                foreach (var item in x.PredefinedProductAttributeValues)
-                {
-                    if (string.IsNullOrEmpty(item.Name))
-                        return false;
+                //foreach (var item in x.PredefinedProductAttributeValues)
+                var item = x.PredefinedPRoductAtributeValues;
+                if(item!=null)
+                { 
+                    return true;
                 }
-                return true;
+                else
+                {
+                    return false;
+                }
             }).WithMessage(localizationService.GetResource("Api.Catalog.PredefinedProductAttributeValue.Fields.Name.Required"));
         }
     }
