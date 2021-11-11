@@ -88,15 +88,15 @@ namespace Grand.Web.Areas.Admin.Controllers
         #region Utilities
         protected void CheckValidateModel(CustomerActionModel model)
         {
-            if ((model.ReactionType == CustomerReactionTypeEnum.Banner) && String.IsNullOrEmpty(model.BannerId))
+            if ((model.ReactionType == CustomerReactionType.Banner) && String.IsNullOrEmpty(model.BannerId))
                 ModelState.AddModelError("error", "Banner is required");
-            if ((model.ReactionType == CustomerReactionTypeEnum.InteractiveForm) && String.IsNullOrEmpty(model.InteractiveFormId))
+            if ((model.ReactionType == CustomerReactionType.InteractiveForm) && String.IsNullOrEmpty(model.InteractiveFormId))
                 ModelState.AddModelError("error", "Interactive form is required");
-            if ((model.ReactionType == CustomerReactionTypeEnum.Email) && String.IsNullOrEmpty(model.MessageTemplateId))
+            if ((model.ReactionType == CustomerReactionType.Email) && String.IsNullOrEmpty(model.MessageTemplateId))
                 ModelState.AddModelError("error", "Email is required");
-            if ((model.ReactionType == CustomerReactionTypeEnum.AssignToCustomerRole) && String.IsNullOrEmpty(model.CustomerRoleId))
+            if ((model.ReactionType == CustomerReactionType.AssignToCustomerRole) && String.IsNullOrEmpty(model.CustomerRoleId))
                 ModelState.AddModelError("error", "Customer role is required");
-            if ((model.ReactionType == CustomerReactionTypeEnum.AssignToCustomerTag) && String.IsNullOrEmpty(model.CustomerTagId))
+            if ((model.ReactionType == CustomerReactionType.AssignToCustomerTag) && String.IsNullOrEmpty(model.CustomerTagId))
                 ModelState.AddModelError("error", "Tag is required");
         }
         #endregion

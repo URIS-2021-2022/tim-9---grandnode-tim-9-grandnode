@@ -86,8 +86,8 @@ namespace Grand.Services.Customers.Tests
                     StartDateTimeUtc = DateTime.UtcNow,
                     EndDateTimeUtc = DateTime.UtcNow.AddMonths(1),
                     Name = "Test action",
-                    ReactionTypeId = (int)CustomerReactionTypeEnum.AssignToCustomerTag,
-                    Condition = CustomerActionConditionEnum.OneOfThem,
+                    ReactionTypeId = (int)CustomerReactionType.AssignToCustomerTag,
+                    Condition = CustomerActionCondition.OneOfThem,
                     ActionTypeId = _Id_CustomerActionType
                 },
             };
@@ -120,7 +120,7 @@ namespace Grand.Services.Customers.Tests
                 EndDateTimeUtc = DateTime.UtcNow.AddMonths(1),
                 Name = "Test action",
                 ReactionTypeId = (int)CustomerReactionTypeEnum.AssignToCustomerTag,
-                Condition = CustomerActionConditionEnum.OneOfThem,
+                Condition = CustomerActionCondition.OneOfThem,
             };
             await _customerActionService.InsertCustomerAction(customerAction);
             Assert.IsTrue(!String.IsNullOrEmpty(customerAction.Id));
