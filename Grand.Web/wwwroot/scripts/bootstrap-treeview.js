@@ -17,7 +17,7 @@
  * limitations under the License.
  * ========================================================= */
 
-;(function ($, window, document, undefined) {
+;(function ($, window, document, undef) {
 
 	/*global jQuery, console*/
 
