@@ -52,7 +52,7 @@ namespace Grand.Framework.TagHelpers.Admin
                     output.Content.SetContent(resource);
                 }
 
-                if (resourceDisplayName != null && DisplayHint)
+                if (DisplayHint)
                 {
 
                     var hintResource = _localizationService.GetResource(
