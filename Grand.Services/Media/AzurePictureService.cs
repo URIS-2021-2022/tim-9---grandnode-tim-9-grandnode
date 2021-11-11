@@ -86,7 +86,7 @@ namespace Grand.Services.Media
         /// <returns>Local picture thumb path</returns>
         protected override string GetThumbLocalPath(string thumbFileName)
         {
-            var thumbFilePath = _config.AzureBlobStorageEndPoint + _config.AzureBlobStorageContainerName + "/" + thumbFileName;
+            var thumbFilePath = _config.AzureBlobStorageEndPoint + _config.AzureBlobStorageContainerName + thumbFileName;
             return thumbFilePath;
         }
 
@@ -98,7 +98,7 @@ namespace Grand.Services.Media
         /// <returns>Local picture thumb path</returns>
         protected override string GetThumbUrl(string thumbFileName, string storeLocation = null)
         {
-            var url = _config.AzureBlobStorageEndPoint + _config.AzureBlobStorageContainerName + "/";
+            var url = _config.AzureBlobStorageEndPoint + _config.AzureBlobStorageContainerName;
             url += thumbFileName;
             return url;
         }
