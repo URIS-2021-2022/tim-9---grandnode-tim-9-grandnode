@@ -136,8 +136,8 @@
 
         public static string UrlRecord_Pattern_Key
         {
-            get { return URLRECORD_PATTERN_KEY; }
-            set { URLRECORD_PATTERN_KEY = value;}
+            get;
+            set;
         }
 
         #endregion
