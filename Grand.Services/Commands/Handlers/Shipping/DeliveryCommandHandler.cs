@@ -43,13 +43,13 @@ namespace Grand.Services.Commands.Handlers.Shipping
 
             var order = await _orderService.GetOrderById(request.Shipment.OrderId);
             if (order == null)
-                throw new Exception("Order cannot be loaded");
+                throw new ArgumentNullException("Order cannot be loaded");
 
             if (!request.Shipment.ShippedDateUtc.HasValue)
-                throw new Exception("This shipment is not shipped yet");
+                throw new ArgumentNullException("This shipment is not shipped yet");
 
             if (request.Shipment.DeliveryDateUtc.HasValue)
-                throw new Exception("This shipment is already delivered");
+                throw new ArgumentNullException("This shipment is already delivered");
 
             request.Shipment.DeliveryDateUtc = DateTime.UtcNow;
             await _shipmentService.UpdateShipment(request.Shipment);

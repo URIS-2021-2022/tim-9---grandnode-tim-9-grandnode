@@ -52,9 +52,6 @@ namespace Grand.Framework.TagHelpers.Admin
                     output.Content.SetContent(resource);
                 }
 
-                if (resourceDisplayName != null && DisplayHint)
-                {
-
                     var hintResource = _localizationService.GetResource(
                         resourceDisplayName.ResourceKey + ".Hint", langId, returnEmptyIfNotFound: true,
                         logIfNotFound: false);
@@ -69,7 +66,6 @@ namespace Grand.Framework.TagHelpers.Admin
                         i.Attributes.Add("data-container", "body");
                         output.Content.AppendHtml(i.ToHtmlString());
                     }
-                }
 
             }
         }

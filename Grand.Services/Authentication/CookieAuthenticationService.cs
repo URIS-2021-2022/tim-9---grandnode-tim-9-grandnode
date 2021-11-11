@@ -66,8 +66,8 @@ namespace Grand.Services.Authentication
         /// Sign in
         /// </summary>
         /// <param name="customer">Customer</param>
-        /// <param name="isPersistent">Whether the authentication session is persisted across multiple requests</param>
-        public virtual async Task SignIn(Customer customer, bool isPersistent)
+        /// <param name="createPersistentCookie">Whether the authentication session is persisted across multiple requests</param>
+        public virtual async Task SignIn(Customer customer, bool createPersistentCookie)
         {
             if (customer == null)
                 throw new ArgumentNullException(nameof(customer));
@@ -98,7 +98,7 @@ namespace Grand.Services.Authentication
 
             //set value indicating whether session is persisted and the time at which the authentication was issued
             var authenticationProperties = new AuthenticationProperties {
-                IsPersistent = isPersistent,
+                IsPersistent = createPersistentCookie,
                 IssuedUtc = DateTime.UtcNow,
                 ExpiresUtc = DateTime.UtcNow.AddHours(CommonHelper.CookieAuthExpires)
             };

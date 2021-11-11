@@ -269,7 +269,7 @@ namespace Grand.Services.Catalog
 
             //discounts applied to products
             foreach (var discount in await GetAllowedDiscountsAppliedToProduct(product, customer))
-                if (!allowedDiscounts.Where(x => x.DiscountId == discount.DiscountId).Any())
+                if (!allowedDiscounts.Any(x => x.DiscountId == discount.DiscountId))
                     allowedDiscounts.Add(discount);
 
             //discounts applied to all products
@@ -279,17 +279,17 @@ namespace Grand.Services.Catalog
 
             //discounts applied to categories
             foreach (var discount in await GetAllowedDiscountsAppliedToCategories(product, customer))
-                if (!allowedDiscounts.Where(x => x.DiscountId == discount.DiscountId).Any())
+                if (!allowedDiscounts.Any(x => x.DiscountId == discount.DiscountId))
                     allowedDiscounts.Add(discount);
 
             //discounts applied to manufacturers
             foreach (var discount in await GetAllowedDiscountsAppliedToManufacturers(product, customer))
-                if (!allowedDiscounts.Where(x => x.DiscountId == discount.DiscountId).Any())
+                if (!allowedDiscounts.Any(x => x.DiscountId == discount.DiscountId))
                     allowedDiscounts.Add(discount);
 
             //discounts applied to vendors
             foreach (var discount in await GetAllowedDiscountsAppliedToVendors(product, customer))
-                if (!allowedDiscounts.Where(x => x.DiscountId == discount.DiscountId).Any())
+                if (!allowedDiscounts.Any(x => x.DiscountId == discount.DiscountId))
                     allowedDiscounts.Add(discount);
 
             return allowedDiscounts;

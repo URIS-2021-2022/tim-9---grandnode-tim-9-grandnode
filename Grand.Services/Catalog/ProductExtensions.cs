@@ -145,8 +145,8 @@ namespace Grand.Services.Catalog
                         }
                         else
                         {
-                            //no combination configured
-                            stockMessage = localizationService.GetResource("Products.Availability.InStock");
+                            
+
                             if (product.AllowAddingOnlyExistingAttributeCombinations)
                             {
                                 stockMessage = localizationService.GetResource("Products.Availability.AllowAddingOnlyExistingAttributeCombinations.Yes");

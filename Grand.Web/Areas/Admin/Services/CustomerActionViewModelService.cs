@@ -152,7 +152,7 @@ namespace Grand.Web.Areas.Admin.Services
             model.Active = true;
             model.StartDateTime = DateTime.Now;
             model.EndDateTime = DateTime.Now.AddMonths(1);
-            model.ReactionTypeId = (int)CustomerReactionTypeEnum.Banner;
+            model.ReactionTypeId = (int)CustomerReactionType.Banner;
             await PrepareReactObjectModel(model);
             return model;
         }
@@ -189,7 +189,7 @@ namespace Grand.Web.Areas.Admin.Services
                 model.CustomerActionConditionType.Add(new SelectListItem()
                 {
                     Value = item.ToString(),
-                    Text = ((CustomerActionConditionTypeEnum)item).ToString()
+                    Text = ((CustomerActionConditionType)item).ToString()
                 });
             }
             return model;
@@ -237,68 +237,68 @@ namespace Grand.Web.Areas.Admin.Services
             var customerActions = await _customerActionService.GetCustomerActionById(customerActionId);
             var condition = customerActions.Conditions.FirstOrDefault(x => x.Id == conditionId);
 
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.Product)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.Product)
             {
                 condition.Products.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.Category)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.Category)
             {
                 condition.Categories.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.Manufacturer)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.Manufacturer)
             {
                 condition.Manufacturers.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.Vendor)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.Vendor)
             {
                 condition.Vendors.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.ProductAttribute)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.ProductAttribute)
             {
                 condition.ProductAttribute.Remove(condition.ProductAttribute.FirstOrDefault(x => x.Id == id));
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.ProductSpecification)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.ProductSpecification)
             {
                 condition.ProductSpecifications.Remove(condition.ProductSpecifications.FirstOrDefault(x => x.Id == id));
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.CustomerRole)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.CustomerRole)
             {
                 condition.CustomerRoles.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.CustomerTag)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.CustomerTag)
             {
                 condition.CustomerTags.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
 
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.CustomCustomerAttribute)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.CustomCustomerAttribute)
             {
                 condition.CustomCustomerAttributes.Remove(condition.CustomCustomerAttributes.FirstOrDefault(x => x.Id == id));
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.CustomerRegisterField)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.CustomerRegisterField)
             {
                 condition.CustomerRegistration.Remove(condition.CustomerRegistration.FirstOrDefault(x => x.Id == id));
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.UrlCurrent)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.UrlCurrent)
             {
                 condition.UrlCurrent.Remove(condition.UrlCurrent.FirstOrDefault(x => x.Id == id));
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.UrlReferrer)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.UrlReferrer)
             {
                 condition.UrlReferrer.Remove(condition.UrlReferrer.FirstOrDefault(x => x.Id == id));
                 await _customerActionService.UpdateCustomerAction(customerActions);
             }
-            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionTypeEnum.Store)
+            if (condition.CustomerActionConditionTypeId == (int)CustomerActionConditionType.Store)
             {
                 condition.Stores.Remove(id);
                 await _customerActionService.UpdateCustomerAction(customerActions);

@@ -50,7 +50,6 @@ namespace Grand.Services.Messages.DotLiquidDrops
         {
             get
             {
-                var storeId = _order?.StoreId;
                 string downloadUrl = string.Format("{0}download/getdownload/{1}", (_store.SslEnabled ? _store.SecureUrl : _store.Url), _orderItem.OrderItemGuid);
                 return downloadUrl;
             }
