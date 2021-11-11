@@ -27,7 +27,7 @@ namespace Grand.Services.Discounts.Cache
 
         private readonly ICacheBase _cacheBase;
 
-        public DiscountRequirementEventConsumer(ICacheBase cacheManager)
+        protected DiscountRequirementEventConsumer(ICacheBase cacheManager)
         {
             _cacheBase = cacheManager;
         }
