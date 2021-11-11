@@ -297,7 +297,9 @@ namespace Grand.Web.Areas.Admin.Controllers
                 }
                 else
                     if (permissionRecord.CustomerRoles.Contains(customerRoleId))
-                    permissionRecord.CustomerRoles.Remove(customerRoleId);
+                        {
+                            permissionRecord.CustomerRoles.Remove(customerRoleId);
+                        }
 
                 await _permissionService.UpdatePermissionRecord(permissionRecord);
 
