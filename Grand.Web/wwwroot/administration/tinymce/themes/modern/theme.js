@@ -1639,7 +1639,7 @@ var modern = (function () {
   }
   var expression = /^([\w\\*]+)?(?:#([\w\-\\]+))?(?:\.([\w\\\.]+))?(?:\[\@?([\w\\]+)([\^\$\*!~]?=)([\w\\]+)\])?(?:\:(.+))?/i;
   var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g;
-  var whiteSpace = /^\s*|\s*$/g;
+  var whiteSpace = /^(?:\s*|\s*)$/g;
   var Collection;
   var Selector = global$10.extend({
     init: function (selector) {
