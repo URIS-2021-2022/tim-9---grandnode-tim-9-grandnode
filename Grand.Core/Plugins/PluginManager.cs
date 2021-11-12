@@ -113,7 +113,8 @@ namespace Grand.Core.Plugins
 
                         //some validation
                         if (string.IsNullOrWhiteSpace(pluginDescriptor.SystemName))
-                            throw new Exception(string.Format("A plugin '{0}' has no system name. Try assigning the plugin a unique name and recompiling.", pluginDescriptor.SystemName));
+                            throw new ArgumentNullException(nameof(pluginDescriptor.SystemName)); 
+                           // throw new Exception(string.Format("A plugin '{0}' has no system name. Try assigning the plugin a unique name and recompiling.", pluginDescriptor.SystemName));
                         if (referencedPlugins.Contains(pluginDescriptor))
                             throw new Exception(string.Format("A plugin with '{0}' system name is already defined", pluginDescriptor.SystemName));
 
@@ -145,9 +146,10 @@ namespace Grand.Core.Plugins
 
                             //init plugin type (only one plugin per assembly is allowed)
                             foreach (var t in pluginDescriptor.ReferencedAssembly.GetTypes())
+
                                 if (typeof(IPlugin).IsAssignableFrom(t))
-                                    if (!t.GetTypeInfo().IsInterface)
-                                        if (t.GetTypeInfo().IsClass && !t.GetTypeInfo().IsAbstract)
+                                    if (!t.GetTypeInfo().IsInterface && t.GetTypeInfo().IsClass && !t.GetTypeInfo().IsAbstract )
+                                     //refactoring 
                                         {
                                             pluginDescriptor.PluginType = t;
                                             break;
@@ -219,7 +221,8 @@ namespace Grand.Core.Plugins
         /// Mark plugin as uninstalled
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
-        public static async Task MarkPluginAsUninstalled(string systemName)
+        /// 
+       public static async Task MarkPluginAsUninstalled(string systemName)
         {
             if (string.IsNullOrEmpty(systemName))
                 throw new ArgumentNullException("systemName");
@@ -239,6 +242,33 @@ namespace Grand.Core.Plugins
                 installedPluginSystemNames.Remove(systemName);
             await PluginFileParser.SaveInstalledPluginsFile(installedPluginSystemNames, filePath);
         }
+
+         //---------------------------------------------------------------------------------------------------------------------
+      /*  public static Task MarkPluginAsUninstalled(string systemName)
+        {
+             if (string.IsNullOrEmpty(systemName))
+                throw new ArgumentNullException("systemName");
+
+               var filePath = CommonHelper.MapPath(InstalledPluginsFilePath);
+            if (!File.Exists(filePath))
+                using (File.Create(filePath))
+                {
+                    //we use 'using' to close the file after it's created
+                }
+
+            return filePath.MarkPluginAsUninstalledAsync(filePath);
+        }
+
+        private static async Task MarkPluginAsUninstalledAsync(string systemName)
+        {
+               var installedPluginSystemNames = PluginFileParser.ParseInstalledPluginsFile(GetInstalledPluginsFilePath());
+            var alreadyMarkedAsInstalled = installedPluginSystemNames
+                                .FirstOrDefault(x => x.Equals(systemName, StringComparison.OrdinalIgnoreCase)) != null;
+            if (alreadyMarkedAsInstalled)
+                installedPluginSystemNames.Remove(systemName);
+            await PluginFileParser.SaveInstalledPluginsFile(installedPluginSystemNames, filePath);
+        }
+       */ //---------------------------------------------------------------------------------------------------------------------
 
         /// <summary>
         /// Mark plugin as uninstalled

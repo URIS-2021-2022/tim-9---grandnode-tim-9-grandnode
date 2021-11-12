@@ -1709,7 +1709,7 @@ var inlite = (function () {
     getParentCtrl: function (elm) {
       var ctrl;
       var lookup = this.getRoot().controlIdLookup;
-      while (elm && lookup) {
+      while (elm) {
         ctrl = lookup[elm.id];
         if (ctrl) {
           break;
@@ -4644,7 +4644,7 @@ var inlite = (function () {
   var $_8h4fxa19tjm0og73b = { getUiContainerDelta: getUiContainerDelta$1 };
 
   var isDomainLike = function (href) {
-    return /^www\.|\.(com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)$/i.test(href.trim());
+    return /^www\.|\.(?:com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)$/i.test(href.trim());
   };
   var isAbsolute = function (href) {
     return /^https?:\/\//.test(href.trim());
@@ -4656,7 +4656,7 @@ var inlite = (function () {
 
   var focusFirstTextBox = function (form) {
     form.find('textbox').eq(0).each(function (ctrl) {
-      ctrl.focus();
+        ctrl.focus();
     });
   };
   var createForm = function (name, spec) {

@@ -3145,7 +3145,7 @@ var mobile = (function () {
     write: noop
   };
   var monitorEvent = function (eventName, initialTarget, f) {
-    var logger = debugging && (eventsMonitored === '*' || contains(eventsMonitored, eventName)) ? function () {
+    var logger = debugging && (eventsMonitored == '*' || contains(eventsMonitored, eventName)) ? function () {
       var sequence = [];
       return {
         logEventCut: function (name$$1, target, purpose) {

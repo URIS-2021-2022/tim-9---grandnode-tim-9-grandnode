@@ -28,7 +28,6 @@ namespace Grand.Plugin.Tax.CountryStateZip.Infrastructure.Cache
 
         public ModelCacheEventConsumer(IServiceProvider serviceProvider)
         {
-            //TODO inject static cache manager using constructor
             this._cacheBase = serviceProvider.GetRequiredService<ICacheBase>();
         }
 
