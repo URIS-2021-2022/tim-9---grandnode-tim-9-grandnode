@@ -769,7 +769,8 @@ namespace Grand.Web.Areas.Admin.Controllers
             {
                 ErrorNotification(ModelState);
                 model = await _productViewModelService.PrepareSimilarProductModel();
-                this.model = model.ProductId;
+             
+
             }
             return View(model);
         }
