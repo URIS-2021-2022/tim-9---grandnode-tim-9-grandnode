@@ -44,10 +44,10 @@ namespace Grand.Framework.Middleware
 
             //set current customer
             var customer = await workContext.SetCurrentCustomer();
-            var vendor = await workContext.SetCurrentVendor(customer);
+           // var vendor = await workContext.SetCurrentVendor(customer);
             var language = await workContext.SetWorkingLanguage(customer);
-            var currency = await workContext.SetWorkingCurrency(customer);
-            var taxtype = await workContext.SetTaxDisplayType(customer);
+          //  var currency = await workContext.SetWorkingCurrency(customer);
+          //  var taxtype = await workContext.SetTaxDisplayType(customer);
 
             //set culture in admin area
             if (context.Request.Path.Value.StartsWith("/admin", StringComparison.InvariantCultureIgnoreCase))
