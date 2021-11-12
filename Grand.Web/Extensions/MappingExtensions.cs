@@ -128,7 +128,7 @@ namespace Grand.Web.Extensions
                 IncludeInSitemap = entity.IncludeInSitemap,
                 IsPasswordProtected = entity.IsPasswordProtected,
                 Password = (entity.Password == password) ? password : "",
-                Title = entity.IsPasswordProtected && !(entity.Password == password) ? "" : entity.GetLocalized(x => x.Title, language.Id),
+                Title = entity.IsPasswordProtected && (entity.Password != password) ? "" : entity.GetLocalized(x => x.Title, language.Id),
                 Body = entity.IsPasswordProtected && !(entity.Password == password) ? "" : entity.GetLocalized(x => x.Body, language.Id),
                 MetaKeywords = entity.GetLocalized(x => x.MetaKeywords, language.Id),
                 MetaDescription = entity.GetLocalized(x => x.MetaDescription, language.Id),

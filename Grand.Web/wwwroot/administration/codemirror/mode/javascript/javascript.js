@@ -877,8 +877,10 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
                                    (top == maybeoperatorComma || top == maybeoperatorNoComma) &&
                                    !/^[,\.=+\-*:?[\(]/.test(textAfter))))
         lexical = lexical.prev;
-      if (statementIndent && lexical.type == ")" && lexical.prev.type == "stat")
-        lexical = lexical.prev;
+        if (statementIndent && lexical.type == ")" && lexical.prev.type == "stat") {
+            lexical = lexical.prev;
+            break;
+        }
       var type = lexical.type, closing = firstChar == type;
 
       if (type == "vardef") return lexical.indented + (state.lastType == "operator" || state.lastType == "," ? lexical.info.length + 1 : 0);

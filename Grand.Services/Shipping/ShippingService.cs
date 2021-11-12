@@ -302,7 +302,7 @@ namespace Grand.Services.Shipping
                     if (productHeight > maxProductHeight)
                         maxProductHeight = productHeight;
                 }
-                decimal dimension = Convert.ToDecimal(Math.Pow(Convert.ToDouble(totalVolume), 1.0 / 3.0));
+                decimal dimension = Convert.ToDecimal(Math.Pow(Convert.ToDouble(totalVolume), (1.0 / 3.0)));
                 length = dimension;
                 width = dimension;
                 height = dimension;

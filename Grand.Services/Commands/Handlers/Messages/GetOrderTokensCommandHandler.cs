@@ -239,7 +239,7 @@ namespace Grand.Services.Commands.Handlers.Messages
                 }
 
                 //shipping
-                bool displayShipping = request.Order.ShippingStatus != ShippingStatus.ShippingNotRequired;
+                
 
                 //payment method fee
                 bool displayPaymentMethodFee = request.Order.PaymentMethodAdditionalFeeExclTax > decimal.Zero;
