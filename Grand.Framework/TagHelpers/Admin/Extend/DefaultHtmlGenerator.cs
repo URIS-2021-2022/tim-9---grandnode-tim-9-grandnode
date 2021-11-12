@@ -234,12 +234,11 @@ namespace Grand.Framework.TagHelpers.Admin
                 // CheckBoxFor() case. That API does not support passing isChecked directly.
                 Debug.Assert(!isChecked.HasValue);
 
-                if (modelExplorer.Model != null)
+                if (modelExplorer.Model != null && bool.TryParse(modelExplorer.Model.ToString(), out var modelChecked))
                 {
-                    if (bool.TryParse(modelExplorer.Model.ToString(), out var modelChecked))
-                    {
+                    
                         isChecked = modelChecked;
-                    }
+                    
                 }
             }
 

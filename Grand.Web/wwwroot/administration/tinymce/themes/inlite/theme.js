@@ -148,8 +148,8 @@ var inlite = (function () {
   var textSelection = function (id) {
     return function (editor) {
       if (!editor.selection.isCollapsed()) {
-        var result = $_9qgimi180jm0og6x4.result(id, $_2bvkva181jm0og6x5.getSelectionRect(editor));
-        return result;
+        return $_9qgimi180jm0og6x4.result(id, $_2bvkva181jm0og6x5.getSelectionRect(editor));
+        
       }
       return null;
     };
@@ -6637,7 +6637,7 @@ var inlite = (function () {
   var browsers = [
     {
       name: 'Edge',
-      versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
+      versionRegexes: [/.*?edge\/ ?([0-9]+)\.(\d+)$/],
       search: function (uastring) {
         var monstrosity = contains$1(uastring, 'edge/') && contains$1(uastring, 'chrome') && contains$1(uastring, 'safari') && contains$1(uastring, 'applewebkit');
         return monstrosity;

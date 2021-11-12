@@ -107,7 +107,7 @@ namespace Grand.Core.TypeConverters.Converter
                         bld.Append(str1);
                         //don't add comma after the last element
                         if (i != ((IList<T>)value).Count - 1)
-                            bld.Append(";");
+                            bld.Append(",");
                     }
                     result=bld.ToString();
                 }
