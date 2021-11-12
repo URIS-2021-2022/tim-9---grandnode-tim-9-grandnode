@@ -534,7 +534,7 @@ namespace Grand.Web.Areas.Admin.Controllers
                             catch (Exception ex)
                             {
                                 _logger.Error(ex.Message);
-                            };
+                            }
                         }
                     }
                     if (!supportedVersion)
