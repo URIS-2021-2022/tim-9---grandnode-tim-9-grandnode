@@ -39,6 +39,7 @@ namespace Grand.Framework.Security.Authorization
             else
                 context.Result = new RedirectToActionResult("AccessDenied", "Home", new { pageUrl = context.HttpContext.Request.Path });
 
+            return;
         }
     }
 }
