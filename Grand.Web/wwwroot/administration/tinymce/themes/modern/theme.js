@@ -2218,7 +2218,7 @@ var modern = (function () {
     getParentCtrl: function (elm) {
       var ctrl;
       var lookup = this.getRoot().controlIdLookup;
-      while (elm && lookup) {
+      while (elm) {
         ctrl = lookup[elm.id];
         if (ctrl) {
           break;

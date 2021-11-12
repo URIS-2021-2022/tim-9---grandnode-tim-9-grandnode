@@ -84,16 +84,6 @@ namespace Grand.Services.Payments
         /// <summary>
         /// Gets or sets a payment status after processing
         /// </summary>
-        public PaymentStatus NewPaymentStatus
-        {
-            get
-            {
-                return _newPaymentStatus;
-            }
-            set
-            {
-                _newPaymentStatus = value;
-            }
-        }
+        public PaymentStatus NewPaymentStatus{ get; set; }
     }
 }

@@ -62,7 +62,7 @@ namespace Grand.Services.Commands.Handlers.Messages
                 var sb = new StringBuilder();
                 sb.AppendLine("<table border=\"0\" style=\"width:100%;\">");
 
-                sb.AppendLine(string.Format("<tr style=\"text-align:center;\">"));
+                sb.AppendLine("<tr style=\"text-align:center;\">");
                 sb.AppendLine(string.Format("<th>{0}</th>", _localizationService.GetResource("Messages.Order.Product(s).Name")));
                 sb.AppendLine(string.Format("<th>{0}</th>", _localizationService.GetResource("Messages.Order.Product(s).Price")));
                 sb.AppendLine(string.Format("<th>{0}</th>", _localizationService.GetResource("Messages.Order.Product(s).Quantity")));
