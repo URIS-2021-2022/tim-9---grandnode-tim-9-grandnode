@@ -28,7 +28,7 @@ namespace Grand.Services.Commands.Handlers.Messages
 
         public async Task<LiquidAuctions> Handle(GetAuctionTokensCommand request, CancellationToken cancellationToken)
         {
-            var liquidAuctions = new LiquidAuctions(request.Product, request.Bid);
+            var liquidAuctions = new LiquidAuctions(request.Product);
             var defaultCurrency = await _currencyService.GetPrimaryStoreCurrency();
             liquidAuctions.Price = _priceFormatter.FormatPrice(request.Bid.Amount, true, defaultCurrency);
             liquidAuctions.EndTime = _dateTimeHelper.ConvertToUserTime(request.Product.AvailableEndDateTimeUtc.Value, DateTimeKind.Utc).ToString();
