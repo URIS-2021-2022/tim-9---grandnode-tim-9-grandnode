@@ -347,10 +347,10 @@ namespace Grand.Services.Catalog
                 customAttributes = new List<CustomAttribute>();
 
             recipientName = customAttributes.FirstOrDefault(x => x.Key == "RecipientName")?.Value;
-            recipientEmail = customAttributes.FirstOrDefault(x => x.Key == "RecipientEmail")?.Value; 
-            senderName = customAttributes.FirstOrDefault(x => x.Key == "SenderName")?.Value; 
-            senderEmail = customAttributes.FirstOrDefault(x => x.Key == "SenderEmail")?.Value; 
-            giftCardMessage = customAttributes.FirstOrDefault(x => x.Key == "Message")?.Value; 
+            recipientEmail = customAttributes.FirstOrDefault(x => x.Key == "RecipientEmail")?.Value; ;
+            senderName = customAttributes.FirstOrDefault(x => x.Key == "SenderName")?.Value; ;
+            senderEmail = customAttributes.FirstOrDefault(x => x.Key == "SenderEmail")?.Value; ;
+            giftCardMessage = customAttributes.FirstOrDefault(x => x.Key == "Message")?.Value; ;
 
         }
 
