@@ -260,8 +260,6 @@ namespace Grand.Framework.TagHelpers.Admin
             }
         }
 
-        private string DebuggerToString() => _name;
-
         public void CopyTo(IHtmlContentBuilder destination)
         {
             if (destination == null)
