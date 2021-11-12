@@ -1281,8 +1281,8 @@ var modern = (function () {
       var width, height;
       if (elm.getBoundingClientRect) {
         var rect = elm.getBoundingClientRect();
-        width = Math.max(rect.width || rect.right - rect.left, elm.offsetWidth);
-        height = Math.max(rect.height || rect.bottom - rect.bottom, elm.offsetHeight);
+          width = Math.max(rect.width || rect.right - rect.left, elm.offsetWidth);
+          height = Math.max(rect.height || rect.top - rect.bottom, elm.offsetHeight);
       } else {
         width = elm.offsetWidth;
         height = elm.offsetHeight;
@@ -1639,7 +1639,7 @@ var modern = (function () {
   }
   var expression = /^([\w\\*]+)?(?:#([\w\-\\]+))?(?:\.([\w\\\.]+))?(?:\[\@?([\w\\]+)([\^\$\*!~]?=)([\w\\]+)\])?(?:\:(.+))?/i;
   var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g;
-  var whiteSpace = /^\s*|\s*$/g;
+  var whiteSpace = /^(?:\s*|\s*)$/g;
   var Collection;
   var Selector = global$10.extend({
     init: function (selector) {

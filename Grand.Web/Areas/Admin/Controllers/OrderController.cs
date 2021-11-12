@@ -1489,9 +1489,6 @@ namespace Grand.Web.Areas.Admin.Controllers
             if (order == null || CheckSalesManager(order))
                 return RedirectToAction("List");
 
-            if (order == null)
-                return RedirectToAction("List");
-
             if (_workContext.CurrentCustomer.IsStaff() && order.StoreId != _workContext.CurrentCustomer.StaffStoreId)
             {
                 return RedirectToAction("List");
@@ -1615,7 +1612,6 @@ namespace Grand.Web.Areas.Admin.Controllers
 
             //If we got this far, something failed, redisplay form
             model = await _orderViewModelService.PrepareOrderAddressModel(order, address);
-            model.BillingAddress = model.BillingAddress;
             return View(model);
         }
 

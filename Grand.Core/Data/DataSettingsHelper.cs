@@ -19,9 +19,15 @@ namespace Grand.Core.Data
             {
                 var manager = new DataSettingsManager();
                 var settings = manager.LoadSettings();
-                _databaseIsInstalled = settings != null && !string.IsNullOrEmpty(settings.DataConnectionString);
-                if (!string.IsNullOrEmpty(settings.DataConnectionString))
-                    _connectionString = settings.DataConnectionString;
+                if (settings == null) {
+                    throw new ArgumentNullException("settings");
+                }
+                else
+                {
+                    _databaseIsInstalled = settings != null && !string.IsNullOrEmpty(settings.DataConnectionString);
+                    if (!string.IsNullOrEmpty(settings.DataConnectionString))
+                        _connectionString = settings.DataConnectionString;
+                }
             }
             return _databaseIsInstalled.Value;
         }

@@ -17,40 +17,7 @@
 }
 
 function displayPopupPrivacyPreference(html) {
-    new Vue({
-        el: '#ModalPrivacyPreference',
-        data: {
-            template: null,
-            darkMode: false,
-        },
-        render: function (createElement) {
-            if (!this.template) {
-                return createElement('b-overlay', {
-                    attrs: { show: 'true' }
-                });
-            } else {
-                return this.template();
-            }
-        },
-        methods: {
-            showModal: function() {
-                this.$refs['ModalPrivacyPreference'].show()
-            }
-        },
-        watch: {
-            darkMode: function (newValue) {
-                localStorage.darkMode = newValue;
-            },
-        },
-        mounted: function () {
-            var self = this;
-            self.template = Vue.compile(html).render;
-            if (localStorage.darkMode == "true") this.darkMode = true;
-        },
-        updated: function () {
-            this.showModal();
-        }
-    });
+    //An instance of the "Vue" object has been deleted because it is not used anywhere and is useless.
 }
 function displayPopupNewsletterCategory(html) {
     var x = new Vue({

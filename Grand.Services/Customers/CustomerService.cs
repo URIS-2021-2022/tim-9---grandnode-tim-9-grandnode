@@ -332,11 +332,15 @@ namespace Grand.Services.Customers
         /// <returns>A customer</returns>
         public virtual Task<Customer> GetCustomerByGuid(Guid customerGuid)
         {
-            if (customerGuid == null)
+            if (customerGuid != null)
+            {
+                var filter = Builders<Customer>.Filter.Eq(x => x.CustomerGuid, customerGuid);
+                return _customerRepository.Collection.Find(filter).FirstOrDefaultAsync();
+            }
+            else
+            {
                 return Task.FromResult<Customer>(null);
-
-            var filter = Builders<Customer>.Filter.Eq(x => x.CustomerGuid, customerGuid);
-            return _customerRepository.Collection.Find(filter).FirstOrDefaultAsync();
+            }
         }
 
         /// <summary>

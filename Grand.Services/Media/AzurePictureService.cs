@@ -113,11 +113,15 @@ namespace Grand.Services.Media
         {
             try
             {
-                await foreach (var blob in container.GetBlobsAsync(Azure.Storage.Blobs.Models.BlobTraits.All, Azure.Storage.Blobs.Models.BlobStates.All, thumbFileName))
+                var blob = container.GetBlobsAsync(Azure.Storage.Blobs.Models.BlobTraits.All, Azure.Storage.Blobs.Models.BlobStates.All, thumbFileName);
+                if (blob != null)
                 {
                     return true;
                 }
-                return false;
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
