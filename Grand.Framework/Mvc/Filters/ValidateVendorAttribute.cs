@@ -56,15 +56,15 @@ namespace Grand.Framework.Mvc.Filters
             /// <summary>
             /// Called early in the filter pipeline to confirm request is authorized
             /// </summary>
-            /// <param name="filterContext">Authorization filter context</param>
-            public void OnAuthorization(AuthorizationFilterContext filterContext)
+            /// <param name="context">Authorization filter context</param>
+            public void OnAuthorization(AuthorizationFilterContext context)
             {
                 //ignore filter actions
-                if (filterContext == null)
-                    throw new ArgumentNullException(nameof(filterContext));
+                if (context == null)
+                    throw new ArgumentNullException(nameof(context));
 
                 //check whether this filter has been overridden for the Action
-                var actionFilter = filterContext.ActionDescriptor.FilterDescriptors
+                var actionFilter = context.ActionDescriptor.FilterDescriptors
                     .Where(f => f.Scope == FilterScope.Action)
                     .Select(f => f.Filter).OfType<ValidateVendorAttribute>().FirstOrDefault();
 
@@ -81,7 +81,7 @@ namespace Grand.Framework.Mvc.Filters
 
                 //ensure that this user has active vendor record associated
                 if (_workContext.CurrentVendor == null)
-                    filterContext.Result = new ChallengeResult();
+                    context.Result = new ChallengeResult();
             }
 
             #endregion
