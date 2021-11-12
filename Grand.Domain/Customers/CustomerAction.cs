@@ -30,9 +30,9 @@ namespace Grand.Domain.Customers
         /// </summary>
         public int ConditionId { get; set; }
 
-        public CustomerActionConditionEnum Condition
+        public CustomerActionCondition Condition
         {
-            get { return (CustomerActionConditionEnum)ConditionId; }
+            get { return (CustomerActionCondition)ConditionId; }
             set { ConditionId = (int)value; }
         }
 
@@ -42,9 +42,9 @@ namespace Grand.Domain.Customers
         /// </summary>
         public int ReactionTypeId { get; set; }
 
-        public CustomerReactionTypeEnum ReactionType
+        public CustomerReactionType ReactionType
         {
-            get { return (CustomerReactionTypeEnum)ReactionTypeId; }
+            get { return (CustomerReactionType)ReactionTypeId; }
             set { ReactionTypeId = (int)value; }
         }
 
@@ -95,17 +95,17 @@ namespace Grand.Domain.Customers
 
             public int CustomerActionConditionTypeId { get; set; }
 
-            public CustomerActionConditionTypeEnum CustomerActionConditionType
+            public CustomerActionConditionType CustomerActionConditionType
             {
-                get { return (CustomerActionConditionTypeEnum)CustomerActionConditionTypeId; }
+                get { return (CustomerActionConditionType)CustomerActionConditionTypeId; }
                 set { CustomerActionConditionTypeId = (int)value; }
             }            
 
             public int ConditionId { get; set; }
 
-            public CustomerActionConditionEnum Condition
+            public CustomerActionCondition Condition
             {
-                get { return (CustomerActionConditionEnum)ConditionId; }
+                get { return (CustomerActionCondition)ConditionId; }
                 set { ConditionId = (int)value; }
             }
 

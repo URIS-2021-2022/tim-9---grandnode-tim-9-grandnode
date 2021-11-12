@@ -73,7 +73,7 @@ namespace Grand.Services.Customers
         public virtual async Task AddToCart(ShoppingCartItem cart, Product product, Customer customer)
         {
             var actiontypes = await GetAllCustomerActionType();
-            var actionType = actiontypes.Where(x => x.SystemKeyword == CustomerActionTypeEnum.AddToCart.ToString()).FirstOrDefault();
+            var actionType = actiontypes.Where(x => x.SystemKeyword == CustomerActionTypes.AddToCart.ToString()).FirstOrDefault();
             if (actionType?.Enabled == true)
             {
                 var datetimeUtcNow = DateTime.UtcNow;
@@ -106,7 +106,7 @@ namespace Grand.Services.Customers
             }
         }
 
-        public virtual async Task AddOrder(Order order, CustomerActionTypeEnum customerActionType)
+        public virtual async Task AddOrder(Order order, CustomerActionTypes customerActionType)
         {
             var actiontypes = await GetAllCustomerActionType();
             var actionType = actiontypes.Where(x => x.SystemKeyword == customerActionType.ToString()).FirstOrDefault();
@@ -153,7 +153,7 @@ namespace Grand.Services.Customers
             if (!customer.IsSystemAccount)
             {
                 var actiontypes = await GetAllCustomerActionType();
-                var actionType = actiontypes.FirstOrDefault(x => x.SystemKeyword == CustomerActionTypeEnum.Url.ToString());
+                var actionType = actiontypes.FirstOrDefault(x => x.SystemKeyword == CustomerActionTypes.Url.ToString());
                 if (actionType?.Enabled == true)
                 {
                     var datetimeUtcNow = DateTime.UtcNow;
@@ -191,7 +191,7 @@ namespace Grand.Services.Customers
             if (!customer.IsSystemAccount)
             {
                 var actiontypes = await GetAllCustomerActionType();
-                var actionType = actiontypes.Where(x => x.SystemKeyword == CustomerActionTypeEnum.Viewed.ToString()).FirstOrDefault();
+                var actionType = actiontypes.Where(x => x.SystemKeyword == CustomerActionTypes.Viewed.ToString()).FirstOrDefault();
                 if (actionType?.Enabled == true)
                 {
                     var datetimeUtcNow = DateTime.UtcNow;
@@ -229,7 +229,7 @@ namespace Grand.Services.Customers
         public virtual async Task Registration(Customer customer)
         {
             var actiontypes = await GetAllCustomerActionType();
-            var actionType = actiontypes.Where(x => x.SystemKeyword == CustomerActionTypeEnum.Registration.ToString()).FirstOrDefault();
+            var actionType = actiontypes.Where(x => x.SystemKeyword == CustomerActionTypes.Registration.ToString()).FirstOrDefault();
             if (actionType?.Enabled == true)
             {
                 var datetimeUtcNow = DateTime.UtcNow;

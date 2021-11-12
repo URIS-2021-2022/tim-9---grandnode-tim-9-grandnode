@@ -15,7 +15,7 @@ namespace Grand.Services.Customers
         /// <summary>
         /// Run action add new order / paid order
         /// </summary>
-        Task AddOrder(Order order, CustomerActionTypeEnum customerActionType);
+        Task AddOrder(Order order, CustomerActionTypes customerActionType);
 
         /// <summary>
         /// Viewed
