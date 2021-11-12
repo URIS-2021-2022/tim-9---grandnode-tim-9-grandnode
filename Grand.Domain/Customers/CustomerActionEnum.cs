@@ -1,6 +1,6 @@
 ﻿namespace Grand.Domain.Customers
 {
-    public enum CustomerActionType
+    public enum CustomerActionTypes
     {
         AddToCart = 1,
         AddOrder = 2,
