@@ -58,7 +58,7 @@
                     }
                     <thead>
                         <tr>
-                            <th>
+                            <th id="picture">
                                 @T("Admin.Orders.Products.Picture")
                             </th>
                             <th>
@@ -366,7 +366,7 @@
 
                             @if (!Model.IsLoggedInAsVendor)
                                 {
-                            <td align="center" style="width: 15%;">
+                            <td style="width: 15%;">
                                 <button type="submit" name="btnEditOrderItem@(item.Id)" id="btnEditOrderItem@(item.Id)" onclick="toggleOrderItemEdit@(item.Id)(true);return false; " class="k-button"><span class="k-icon k-i-edit"></span>&nbsp;@T("Admin.Common.Edit")</button>
                                 <button type="submit" name="btnDeleteOrderItem@(item.Id)" id="btnDeleteOrderItem@(item.Id)" onclick="return confirm('@T("Admin.Common.AreYouSure")'); " class="k-button"><span class="k-icon k-i-delete"></span>&nbsp;@T("Admin.Common.Delete")</button>
                                 <button type="submit" name="btnSaveOrderItem@(item.Id)" id="btnSaveOrderItem@(item.Id)" style="display:none;" onclick="return confirm('@T("Admin.Common.AreYouSure")'); " class="k-button"><span class="k-icon k-i-save"></span>&nbsp;@T("Admin.Common.Save")</button>
