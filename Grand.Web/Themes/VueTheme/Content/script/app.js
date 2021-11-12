@@ -108,7 +108,7 @@
         validateBeforeSubmitParam: function (event,param) {
             this.$validator.validateAll().then((result) => {
                 if (result) {
-                    var para = document.createElement("input");
+                    var para;
                     para.name = param;
                     para.type = 'hidden';
                     event.srcElement.appendChild(para);
