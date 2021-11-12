@@ -77,7 +77,7 @@ namespace Grand.Web.Areas.Admin.Controllers
             foreach (var pr in permissionRecords)
                 foreach (var cr in customerRoles)
                 {
-                    bool allowed = pr.CustomerRoles.Count(x => x == cr.Id) > 0;
+                    bool allowed = pr.CustomerRoles.Any(x => x == cr.Id);
                     if (!model.Allowed.ContainsKey(pr.SystemName))
                         model.Allowed[pr.SystemName] = new Dictionary<string, bool>();
                     model.Allowed[pr.SystemName][cr.Id] = allowed;
