@@ -206,7 +206,7 @@ function addAntiForgeryToken(data) {
         data.__RequestVerificationToken = tokenInput.value;
     }
     return data;
-};
+}
 
 function newsletter_subscribe(subscribe) {
     var subscribeProgress = document.getElementById("subscribe-loading-progress");
