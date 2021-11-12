@@ -203,7 +203,7 @@
     },
 
     daysToMarkTo: function daysToMark(date) {
-        for (i = 0; i < Reservation.availableDatesTo.length; i++) {
+        for (let i = 0; i < Reservation.availableDatesTo.length; i++) {
             var splitResults = Reservation.availableDatesTo[i].Date.split("-");
             var year = splitResults[0];
             var month = splitResults[1];
