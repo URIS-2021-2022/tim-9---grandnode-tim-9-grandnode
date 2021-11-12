@@ -15,8 +15,10 @@ namespace Grand.Api.Infrastructure
 {
     public partial class ApiAuthenticationRegistrar : IExternalAuthenticationRegistrar
     {
+
         public void Configure(AuthenticationBuilder builder, IConfiguration configuration)
         {
+
             builder.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
             {
                 var config = new ApiConfig();
@@ -55,7 +57,7 @@ namespace Grand.Api.Infrastructure
                                     throw new ArgumentNullException(await jwtAuthentication.ErrorMessage());
                             }
                             else
-                                throw new ArgumentNullException("API is disable");
+                                throw new ArgumentNullException(config.ToString());
                         }
                         catch (Exception ex)
                         {

@@ -7,12 +7,12 @@ namespace Grand.Services.Messages.DotLiquidDrops
     public partial class LiquidAuctions : Drop
     {
         private Product _product;
-        private Bid _bid;
+        
 
-        public LiquidAuctions(Product product, Bid bid = null)
+        public LiquidAuctions(Product product)
         {
             _product = product;
-            _bid = bid;
+            
 
             AdditionalTokens = new Dictionary<string, string>();
         }

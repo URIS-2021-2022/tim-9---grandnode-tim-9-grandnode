@@ -15,11 +15,9 @@ namespace Grand.Framework.Security.Captcha
         public string Response { get; set; }
         public string Challenge { get; set; }
 
-        private readonly ReCaptchaVersion _version;
 
         public GReCaptchaValidator(ReCaptchaVersion version = ReCaptchaVersion.Version2)
         {
-            _version = version;
         }
 
         public async Task<GReCaptchaResponse> Validate()

@@ -15,7 +15,7 @@
   function _defineProperties(target, props) {
       //for (var i = 0; i < props.length; i++) 
       for  (let value in props)      {
-      var descriptor = value;
+      var descriptor = new String(value);
       descriptor.enumerable = descriptor.enumerable || false;
       descriptor.configurable = true;
       if ("value" in descriptor) descriptor.writable = true;

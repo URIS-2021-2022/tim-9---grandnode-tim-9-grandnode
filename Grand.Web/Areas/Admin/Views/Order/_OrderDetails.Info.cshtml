@@ -720,13 +720,16 @@
                 <admin-label asp-for="CustomValues" asp-display-hint="false" class="control-label col-3 col-md-3 col-sm-3"></admin-label>
                 <div class="col-9 col-md-9 col-sm-9">
                     <table>
-                        @foreach (var item in Model.CustomValues)
-                        {
-                            <tr>
-                                <td>@item.Key:</td>
-                                <td>@(item.Value != null ? item.Value.ToString() : "")</td>
-                            </tr>
-                        }
+                            @foreach (var item in Model.CustomValues)
+                            {
+                        <tr>
+                            <th>
+                                Heading
+                            </th>
+                            <td>@item.Key:</td>
+                            <td>@(item.Value != null ? item.Value.ToString() : "")</td>
+                        </tr>
+                            }
                     </table>
                 </div>
             </div>
