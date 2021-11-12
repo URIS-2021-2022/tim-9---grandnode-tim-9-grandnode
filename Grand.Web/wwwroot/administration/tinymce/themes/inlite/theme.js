@@ -6637,7 +6637,7 @@ var inlite = (function () {
   var browsers = [
     {
       name: 'Edge',
-      versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
+      versionRegexes: [/.*?edge\/ ?([0-9]+)\.(\d+)$/],
       search: function (uastring) {
         var monstrosity = contains$1(uastring, 'edge/') && contains$1(uastring, 'chrome') && contains$1(uastring, 'safari') && contains$1(uastring, 'applewebkit');
         return monstrosity;
