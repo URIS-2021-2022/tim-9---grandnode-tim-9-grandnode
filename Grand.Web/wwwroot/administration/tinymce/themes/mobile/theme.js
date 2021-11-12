@@ -6366,10 +6366,8 @@ var mobile = (function () {
         resolve(value);
       });
     };
-    Promise.reject = function (value) {
-      return new Promise(function (resolve, reject) {
-        reject(value);
-      });
+      Promise.reject = function (value) {
+          return new Promise.reject(value); 
     };
     Promise.race = function (values) {
       return new Promise(function (resolve, reject) {
@@ -10183,7 +10181,7 @@ var mobile = (function () {
             return $_cf4mlp15xjm0og571.relativeToNative(win, startSitu, finishSitu);
           }),
           rtl: cached(function () {
-            return Option.some($_cf4mlp15xjm0og571.relativeToNative(win, finishSitu, startSitu));
+              return Option.some($_cf4mlp15xjm0og571.relativeToNative(win, startSitu, finishSitu));
           })
         };
       },

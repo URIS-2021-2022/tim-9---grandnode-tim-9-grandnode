@@ -36,7 +36,7 @@ namespace Grand.Framework.Mvc.Filters
         /// <summary>
         /// Represents a filter that confirms access to closed store
         /// </summary>
-        private class CheckAccessClosedStoreFilter : IAsyncActionFilter
+        private sealed class CheckAccessClosedStoreFilter : IAsyncActionFilter
         {
             #region Fields
 

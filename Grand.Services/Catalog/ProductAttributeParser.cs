@@ -191,7 +191,7 @@ namespace Grand.Services.Catalog
                     }
                 }
 
-                if (hasAttribute == false)
+                if (!hasAttribute)
                 {
                     attributesEqual = false;
                     break;

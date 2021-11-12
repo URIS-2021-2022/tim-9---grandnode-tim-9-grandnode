@@ -62,7 +62,7 @@ namespace Grand.Web.Infrastructure
 
             RegisterTopicRoute(routeBuilder, pattern);
 
-            RegisterInstallRoute(routeBuilder, pattern);
+            RegisterInstallRoute(routeBuilder);
 
         }
 
@@ -789,7 +789,7 @@ namespace Grand.Web.Infrastructure
                             new { controller = "Topic", action = "Authenticate" });
         }
 
-        private void RegisterInstallRoute(IEndpointRouteBuilder routeBuilder, string pattern)
+        private void RegisterInstallRoute(IEndpointRouteBuilder routeBuilder)
         {
             //install
             routeBuilder.MapControllerRoute("Installation", "install",

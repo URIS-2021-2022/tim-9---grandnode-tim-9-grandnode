@@ -186,12 +186,12 @@ namespace Grand.Web.Areas.Admin.Controllers
                 }
 
                 var restictedShipping = _paymentService.GetRestrictedShippingIds(pm);
-                foreach (var s in shippings)
+                foreach (var s in shippings.Select(s => s.Name))
                 {
-                    bool resticted = restictedShipping.Contains(s.Name);
+                    bool resticted = restictedShipping.Contains(s);
                     if (!model.RestictedShipping.ContainsKey(pm.PluginDescriptor.SystemName))
                         model.RestictedShipping[pm.PluginDescriptor.SystemName] = new Dictionary<string, bool>();
-                    model.RestictedShipping[pm.PluginDescriptor.SystemName][s.Name] = resticted;
+                    model.RestictedShipping[pm.PluginDescriptor.SystemName][s] = resticted;
                 }
 
             }

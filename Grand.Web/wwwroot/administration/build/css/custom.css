@@ -2469,8 +2469,8 @@ h4.graph_title {
     -moz-border-radius: 5px;
     -moz-background-clip: padding;
     border-radius: 5px;
-    background-clip: padding-box;
     background: #FFF;
+    background-clip: padding-box;
 }
 
 .tile-stats:hover .icon i {

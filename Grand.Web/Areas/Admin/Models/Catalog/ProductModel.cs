@@ -911,7 +911,7 @@ namespace Grand.Web.Areas.Admin.Models.Catalog
             public DateTime EndTime { get; set; }
 
             [GrandResourceDisplayName("Admin.Catalog.Products.Fields.Calendar.Interval")]
-            public int Interval { get; set; } = 1;
+            public int Interval { get; set; } 
             public int IntervalUnit { get; set; }
 
             [GrandResourceDisplayName("Admin.Catalog.Products.Fields.Calendar.IncBothDate")]
