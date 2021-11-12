@@ -24,7 +24,7 @@ namespace Grand.Framework.Mvc.Filters
         /// <summary>
         /// Represents a filter that check existence of passed form key and return result as an action parameter
         /// </summary>
-        private class ParameterBasedOnFormNameFilter : IActionFilter
+        private sealed class ParameterBasedOnFormNameFilter : IActionFilter
         {
             #region Fields
 

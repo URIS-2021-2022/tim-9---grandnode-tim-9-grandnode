@@ -70,9 +70,8 @@ namespace Grand.Framework.Mvc.Filters
                 var captchaChallengeValue = form[CHALLENGE_FIELD_KEY];
                 var captchaResponseValue = form[RESPONSE_FIELD_KEY];
                 var gCaptchaResponseValue = string.Empty;
-                foreach (var item in form.Keys)
+                foreach (var item in form.Keys.Where(x => x.Contains(G_RESPONSE_FIELD_KEY_V3)))
                 {
-                    if (item.Contains(G_RESPONSE_FIELD_KEY_V3))
                         gCaptchaResponseValue = form[item];
                 }
 

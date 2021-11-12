@@ -1151,7 +1151,7 @@ namespace Grand.Services.Catalog
         public virtual async Task DeleteProductWarehouseInventory(ProductWarehouseInventory pwi)
         {
             if (pwi == null)
-                throw new ArgumentNullException("pwi");
+                throw new ArgumentNullException(pwi.ToString());
 
             var updatebuilder = Builders<Product>.Update;
             var update = updatebuilder.Pull(p => p.ProductWarehouseInventory, pwi);
@@ -1165,7 +1165,7 @@ namespace Grand.Services.Catalog
         public virtual async Task InsertProductWarehouseInventory(ProductWarehouseInventory pwi)
         {
             if (pwi == null)
-                throw new ArgumentNullException("productWarehouse");
+                throw new ArgumentNullException(pwi.ToString());
 
             var updatebuilder = Builders<Product>.Update;
             var update = updatebuilder.AddToSet(p => p.ProductWarehouseInventory, pwi);
@@ -1181,7 +1181,7 @@ namespace Grand.Services.Catalog
         public virtual async Task UpdateProductWarehouseInventory(ProductWarehouseInventory pwi)
         {
             if (pwi == null)
-                throw new ArgumentNullException("productWarehouseInventory");
+                throw new ArgumentNullException(pwi.ToString());
 
             var builder = Builders<Product>.Filter;
             var filter = builder.Eq(x => x.Id, pwi.ProductId);

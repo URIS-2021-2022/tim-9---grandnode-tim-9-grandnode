@@ -7,7 +7,7 @@ namespace Grand.Services.Messages.DotLiquidDrops
 {
     public partial class LiquidAttributeCombination : Drop
     {
-        private ProductAttributeCombination _combination;
+        private readonly ProductAttributeCombination _combination;
 
         public LiquidAttributeCombination(ProductAttributeCombination combination)
         {

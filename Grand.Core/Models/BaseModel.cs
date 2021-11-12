@@ -14,7 +14,6 @@ namespace Grand.Core.Models
         public BaseModel()
         {
             GenericAttributes = new List<GenericAttribute>();
-            PostInitialize();
         }
 
         #endregion
