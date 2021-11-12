@@ -148,8 +148,8 @@ var inlite = (function () {
   var textSelection = function (id) {
     return function (editor) {
       if (!editor.selection.isCollapsed()) {
-        var result = $_9qgimi180jm0og6x4.result(id, $_2bvkva181jm0og6x5.getSelectionRect(editor));
-        return result;
+        return $_9qgimi180jm0og6x4.result(id, $_2bvkva181jm0og6x5.getSelectionRect(editor));
+        
       }
       return null;
     };
