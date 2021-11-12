@@ -326,7 +326,9 @@ namespace Grand.Services.Localization
                 throw new ArgumentNullException("localizationService");
             if (languageService == null)
                 throw new ArgumentNullException("languageService");
-            if (string.IsNullOrEmpty(resourceName))
+            if (resourceName == null)
+                throw new ArgumentNullException("resourceName");
+            else
                 resourceName = resourceName.ToLowerInvariant();
             foreach (var lang in await languageService.GetAllLanguages(true))
             {

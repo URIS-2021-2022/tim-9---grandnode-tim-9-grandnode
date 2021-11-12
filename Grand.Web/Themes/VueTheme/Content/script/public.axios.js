@@ -27,7 +27,7 @@ var AxiosCart = {
         }).then(function (response) {
             this.AxiosCart.success_process(response);
         }).catch(function (error) {
-            error.axiosFailure;
+            error.axiosFailure();
         }).then(function (response) {
             this.AxiosCart.resetLoadWaiting();
         });  

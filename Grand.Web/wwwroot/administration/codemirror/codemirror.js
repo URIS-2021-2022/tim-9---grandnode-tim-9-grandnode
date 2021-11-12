@@ -1664,7 +1664,7 @@
     while ((asArray || stream.pos < pos.ch) && !stream.eol()) {
       stream.start = stream.pos;
       style = readToken(mode, stream, context.state);
-      if (asArray) { tokens.push(new Token(stream, style, copyState(doc.mode, context.state))); break; }
+      if (asArray) { tokens.push(new Token(stream, style, copyState(doc.mode, context.state))); }
     }
     return asArray ? tokens : new Token(stream, style, context.state)
   }
@@ -3307,16 +3307,10 @@
   // Read and store the height of line widgets associated with the
   // given line.
   function updateWidgetHeight(line) {
-      if (line.widgets)
-      {
-          for (let value of line.widgets)
-                {
-                    var w = value, parent = w.node.parentNode;
-                    if (parent) {
-                    w.height = parent.offsetHeight;
-                    }
-                }
-      }
+    if (line.widgets) { for (var i = 0; i < line.widgets.length; ++i) {
+      var w = line.widgets[i], parent = w.node.parentNode;
+      if (parent) { w.height = parent.offsetHeight; }
+    } }
   }
 
   // Compute the lines that are visible in a given viewport (defaults
@@ -6505,7 +6499,7 @@
         var reader = new FileReader;
         reader.onload = operation(cm, function () {
           var content = reader.result;
-          if (/[\x00-\x08\x0e-\x1f]{2}/.test(content)) { content = ""; }
+          if (/{2}/.test(content)) { content = ""; }
           text[i] = content;
           if (++read == n) {
             pos = clipPos(cm.doc, pos);

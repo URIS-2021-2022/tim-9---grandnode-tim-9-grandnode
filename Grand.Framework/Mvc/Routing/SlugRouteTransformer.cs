@@ -44,7 +44,7 @@ namespace Grand.Framework.Mvc.Routing
             return result;
         }
 
-        public override async ValueTask<RouteValueDictionary> TransformAsync(HttpContext context, RouteValueDictionary values)
+        public override async ValueTask<RouteValueDictionary> TransformAsync(HttpContext httpContext, RouteValueDictionary values)
         {
             if (values == null)
                 return null;
@@ -68,9 +68,9 @@ namespace Grand.Framework.Mvc.Routing
 
                 values["controller"] = "Common";
                 values["action"] = "InternalRedirect";
-                values["url"] = $"{context.Request.PathBase}/{activeSlug}{context.Request.QueryString}";
+                values["url"] = $"{httpContext.Request.PathBase}/{activeSlug}{httpContext.Request.QueryString}";
                 values["permanentRedirect"] = true;
-                context.Items["grand.RedirectFromGenericPathRoute"] = true;
+                httpContext.Items["grand.RedirectFromGenericPathRoute"] = true;
                 return values;
             }
 
@@ -90,9 +90,9 @@ namespace Grand.Framework.Mvc.Routing
                     {
                         values["controller"] = "Common";
                         values["action"] = "InternalRedirect";
-                        values["url"] = $"{context.Request.PathBase}/{slugForCurrentLanguage}{context.Request.QueryString}";
+                        values["url"] = $"{httpContext.Request.PathBase}/{slugForCurrentLanguage}{httpContext.Request.QueryString}";
                         values["permanentRedirect"] = false;
-                        context.Items["grand.RedirectFromGenericPathRoute"] = true;
+                        httpContext.Items["grand.RedirectFromGenericPathRoute"] = true;
                         return values;
                     }
                 }
@@ -166,7 +166,7 @@ namespace Grand.Framework.Mvc.Routing
                     break;
                 default:
                     //no record found, thus generate an event this way developers could insert their own types
-                    await context.RequestServices.GetRequiredService<IMediator>().Publish(new CustomUrlRecordEntityName(values, urlRecord));
+                    await httpContext.RequestServices.GetRequiredService<IMediator>().Publish(new CustomUrlRecordEntityName(values, urlRecord));
                     break;
             }
             return values;

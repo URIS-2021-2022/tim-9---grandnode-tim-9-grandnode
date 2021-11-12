@@ -14,7 +14,8 @@ namespace Grand.Api.Jwt
         private string issuer = "";
         private bool useaudience;
         private string audience = "";
-        private Dictionary<string, string> claims = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> claims = new Dictionary<string, string>();
+        //s2933 otisla sa prethodnom ispravkom i tim commitom 
         private int expiryInMinutes = 5;
 
         private void EnsureArguments()
@@ -23,10 +24,10 @@ namespace Grand.Api.Jwt
                 throw new ArgumentNullException("Security Key");
 
             if (this.useissuer && string.IsNullOrEmpty(this.issuer))
-                throw new ArgumentNullException("Issuer");
+                throw new ArgumentNullException(nameof(this.issuer));
 
             if (this.useaudience && string.IsNullOrEmpty(this.audience))
-                throw new ArgumentNullException("Audience");
+                throw new ArgumentNullException(nameof(this.audience));
         }
 
         public JwtTokenBuilder AddSecurityKey(SecurityKey securityKey)

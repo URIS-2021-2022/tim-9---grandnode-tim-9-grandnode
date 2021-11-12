@@ -101,11 +101,11 @@ namespace Grand.Services.Catalog
             await _mediator.EntityUpdated(bid);
         }
 
-        public virtual async Task UpdateHighestBid(Product product, decimal bid, string highestBidder)
+        public virtual async Task UpdateHighestBid(Product product, decimal bid, string bidder)
         {
             var builder = Builders<Product>.Filter;
             var filter = builder.Eq(x => x.Id, product.Id);
-            var update = Builders<Product>.Update.Set(x => x.HighestBid, bid).Set(x => x.HighestBidder, highestBidder);
+            var update = Builders<Product>.Update.Set(x => x.HighestBid, bid).Set(x => x.HighestBidder, bidder);
 
             await _productRepository.Collection.UpdateOneAsync(filter, update);
 

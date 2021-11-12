@@ -218,7 +218,6 @@ namespace Grand.Services.Catalog
                             var download = await _downloadService.GetDownloadByGuid(downloadGuid);
                             if (download != null)
                             {
-                                //TODO add a method for getting URL (use routing because it handles all SEO friendly URLs)
                                 string attributeText = "";
                                 var fileName = string.Format("{0}{1}",
                                     download.Filename ?? download.DownloadGuid.ToString(),
@@ -290,7 +289,6 @@ namespace Grand.Services.Catalog
                                     //render only when more than 1
                                     if (attributeValue.Quantity > 1)
                                     {
-                                        //TODO localize resource
                                         formattedAttribute += string.Format(" - qty {0}", attributeValue.Quantity);
                                     }
                                 }

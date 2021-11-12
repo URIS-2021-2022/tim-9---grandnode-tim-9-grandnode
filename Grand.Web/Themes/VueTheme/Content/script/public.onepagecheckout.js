@@ -346,7 +346,7 @@ var Shipping = {
     },
 
     save: function () {
-        if (Checkout.loadWaiting != false) return;
+        if (Checkout.loadWaiting) return;
         Checkout.setLoadWaiting('shipping');
 
         var form = document.querySelector(this.form);
@@ -357,13 +357,13 @@ var Shipping = {
             data: data,
         }).then(function (response) {
             if (response.data.goto_section !== undefined) {
-                if (!(response.data.update_section.name == "shipping")) {
+                if (response.data.update_section.name != "shipping") {
                     this.Shipping.nextStep(response);
                 }
                 document.querySelector('#back-' + response.data.goto_section).setAttribute('onclick', 'document.querySelector("#button-shipping").click()');
             }
         }).catch(function (error) {
-            error.axiosFailure;
+            error.axiosFailure();
         }).then(function () {
             this.Billing.resetLoadWaiting();
         });

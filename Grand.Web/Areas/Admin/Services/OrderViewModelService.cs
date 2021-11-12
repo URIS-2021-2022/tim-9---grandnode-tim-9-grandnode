@@ -1247,7 +1247,6 @@ namespace Grand.Web.Areas.Admin.Services
                     if (formKey.Equals("giftcard.Message", StringComparison.OrdinalIgnoreCase))
                     {
                         giftCardMessage = form[formKey];
-                        continue;
                     }
                 }
 

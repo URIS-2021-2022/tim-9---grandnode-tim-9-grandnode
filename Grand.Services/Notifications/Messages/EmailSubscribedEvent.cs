@@ -2,7 +2,7 @@
 
 namespace Grand.Services.Notifications.Messages
 {
-    public sealed class EmailSubscribedEvent : INotification
+    public class EmailSubscribedEvent : INotification , System.IEquatable<EmailSubscribedEvent>
     {
         private readonly string _email;
 
@@ -30,9 +30,10 @@ namespace Grand.Services.Notifications.Messages
                 return false;
             if (ReferenceEquals(this, obj))
                 return true;
-            if (obj.GetType() != typeof(EmailSubscribedEvent))
-                return false;
-            return Equals((EmailSubscribedEvent)obj);
+            if (obj.GetType() == typeof(EmailSubscribedEvent))
+                return Equals((EmailSubscribedEvent)obj);
+            return false;
+            
         }
 
         public override int GetHashCode()

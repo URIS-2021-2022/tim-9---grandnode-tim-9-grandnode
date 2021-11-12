@@ -770,7 +770,8 @@ namespace Grand.Web.Areas.Admin.Controllers
             {
                 ErrorNotification(ModelState);
                 model = await _productViewModelService.PrepareSimilarProductModel();
-                model.ProductId = model.ProductId;
+             
+
             }
             return View(model);
         }
@@ -1591,7 +1592,7 @@ namespace Grand.Web.Areas.Admin.Controllers
             if (product.ProductPrices.Where(x => x.Id != model.Id && x.CurrencyCode == model.CurrencyCode).Any())
                 ModelState.AddModelError("", "You can't use this currency code");
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && productPrice != null )
             {
                 try
                 {

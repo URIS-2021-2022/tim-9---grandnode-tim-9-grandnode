@@ -190,7 +190,7 @@ namespace Grand.Services.Tax
                         address = customer.ShippingAddress;
                     }
                     break;
-                case TaxBasedOn.DefaultAddress:
+              
                 default:
                     {
                         address = await _addressService.GetAddressByIdSettings(_taxSettings.DefaultTaxAddressId);

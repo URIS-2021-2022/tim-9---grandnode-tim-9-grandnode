@@ -534,7 +534,7 @@ var __meta__ = {
         if(!style) {
             style = "display:none";
         } else {
-            style = style.replace(/((.*)?display)(.*)?:([^;]*)/i, "$1:none");
+            style = style.replace(/display([^;]*)/i, "$1:none");
             if(style === attr.style) {
                 style = style.replace(/(.*)?/i, "display:none;$1");
             }
@@ -2500,7 +2500,7 @@ var __meta__ = {
 
                 notString = notString.join(",");
 
-                if (notString !== "") {
+                if (notString != "") {
                     notString = ":not(" + notString + ")";
                 }
 

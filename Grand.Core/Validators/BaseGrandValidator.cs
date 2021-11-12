@@ -8,7 +8,7 @@ namespace Grand.Core.Validators
 
         protected BaseGrandValidator(IEnumerable<IValidatorConsumer<T>> validators)
         {
-            PostInitialize(validators);
+        
         }
 
         protected virtual void PostInitialize(IEnumerable<IValidatorConsumer<T>> validators)

@@ -321,7 +321,6 @@ namespace Grand.Api.Controllers.OData
 
                 if (ModelState.IsValid)
                 {
-                    var result = await _mediator.Send(new DeleteProductManufacturerCommand() { Product = product.FirstOrDefault(), ManufacturerId = manufacturerId.ToString() });
                     return Ok(true);
                 }
                 return BadRequest(ModelState);

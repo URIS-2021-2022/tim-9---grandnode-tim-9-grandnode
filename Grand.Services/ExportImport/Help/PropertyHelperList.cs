@@ -6,7 +6,7 @@ namespace Grand.Services.ExportImport.Help
 {
     public class PropertyHelperList<T>
     {
-        private T obj;
+        private readonly T obj;
 
         public PropertyHelperList(T obj1)
         {

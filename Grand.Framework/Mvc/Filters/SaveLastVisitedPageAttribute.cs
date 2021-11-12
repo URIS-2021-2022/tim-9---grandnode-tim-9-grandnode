@@ -29,7 +29,7 @@ namespace Grand.Framework.Mvc.Filters
         /// <summary>
         /// Represents a filter that saves last visited page by customer
         /// </summary>
-        private class SaveLastVisitedPageFilter : IAsyncActionFilter
+        private sealed class SaveLastVisitedPageFilter : IAsyncActionFilter
         {
             #region Fields
 

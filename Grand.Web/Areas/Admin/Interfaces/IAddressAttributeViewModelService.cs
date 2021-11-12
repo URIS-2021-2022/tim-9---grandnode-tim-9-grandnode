@@ -14,8 +14,9 @@ namespace Grand.Web.Areas.Admin.Interfaces
         Task<AddressAttribute> UpdateAddressAttributeModel(AddressAttributeModel model, AddressAttribute addressAttribute);
         Task<(IEnumerable<AddressAttributeValueModel> addressAttributeValues, int totalCount)> PrepareAddressAttributeValues(string addressAttributeId);
         AddressAttributeValueModel PrepareAddressAttributeValueModel(string addressAttributeId);
-        Task<AddressAttributeValue> InsertAddressAttributeValueModel(AddressAttributeValueModel model);
         AddressAttributeValueModel PrepareAddressAttributeValueModel(AddressAttributeValue addressAttributeValue);
+        Task<AddressAttributeValue> InsertAddressAttributeValueModel(AddressAttributeValueModel model);
+    
         Task<AddressAttributeValue> UpdateAddressAttributeValueModel(AddressAttributeValueModel model, AddressAttributeValue addressAttributeValue);
 
     }

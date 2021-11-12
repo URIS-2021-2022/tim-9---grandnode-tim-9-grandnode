@@ -128,7 +128,8 @@ var a, l;
                         case "on":
                         case "nativeOn":
                             e[a] || (e[a] = {});
-                            for (var i = 0, r = Object.keys(arguments[h][a] || {}); i < r.length; i++) (l = r[i]), e[a][l] ? (e[a][l] = [].concat(e[a][l], arguments[h][a][l])) : (e[a][l] = arguments[h][a][l]);
+                            e[a][l] = [].concat(e[a][l]);
+                            for (var i = 0, r = Object.keys(arguments[h][a] || {}); i < r.length; i++) (l = r[i]), e[a][l] ? (e[a][l], arguments[h][a][l]) : (e[a][l] = arguments[h][a][l]);
                             break;
                         case "attrs":
                         case "props":
@@ -272,10 +273,11 @@ var a, l;
                     l = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                 return o(o({}, l), {}, { install: W(a) });
             },
+            /*
             N = function (a) {
                 var l = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                 for (var e in l) e && l[e] && a.use(l[e]);
-            },
+            },*/ 
             J = function (a, l, e) {
                 a && l && e && a.component(l, e);
             },

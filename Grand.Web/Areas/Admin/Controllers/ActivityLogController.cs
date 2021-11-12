@@ -111,8 +111,7 @@ namespace Grand.Web.Areas.Admin.Controllers
         [PermissionAuthorizeAction(PermissionActionName.List)]
         public async Task<IActionResult> ListStats()
         {
-            var model = await _activityLogViewModelService.PrepareActivityLogSearchModel();
-            return View(model);
+            return await ListLogs();
         }
 
         [PermissionAuthorizeAction(PermissionActionName.List)]
