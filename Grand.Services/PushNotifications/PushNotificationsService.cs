@@ -140,7 +140,8 @@ namespace Grand.Services.PushNotifications
         /// <returns>Bool indicating whether message was sent successfully and string result to display</returns>
         public virtual async Task<(bool, string)> SendPushNotification(string title, string text, string pictureUrl, string clickUrl, List<string> registrationIds = null)
         {
-            WebRequest tRequest = WebRequest.Create("https://fcm.googleapis.com/fcm/send");
+            string uri = "https://fcm.googleapis.com/fcm/send";
+            WebRequest tRequest = WebRequest.Create(uri);
             tRequest.Method = "post";
             tRequest.ContentType = "application/json";
 

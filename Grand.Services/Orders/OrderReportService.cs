@@ -284,7 +284,7 @@ namespace Grand.Services.Orders
                     }).ToListAsync();
 
 
-            var item2 = query.Count() > 0 ? query.FirstOrDefault() : new OrderAverageReportLine {
+            var item2 = query.Any() ? query.FirstOrDefault() : new OrderAverageReportLine {
                 CountOrders = 0,
                 SumShippingExclTax = decimal.Zero,
                 SumTax = decimal.Zero,
